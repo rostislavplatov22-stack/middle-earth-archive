@@ -1,0 +1,42 @@
+# v74.2 Invisible Security Patch
+# This file contains only production/deploy safety settings.
+# It does not add pages, components, CSS, or visual trust blocks.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Hide accidental development/presentation artifacts if they are copied into the deployed output.
+[[redirects]]
+  from = "/preview/*"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/QA_*"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/LAUNCH_HANDOFF_*"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/*.zip"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/trust-security"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/trust-security/*"
+  to = "/404"
+  status = 404

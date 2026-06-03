@@ -1,0 +1,45 @@
+# v74.2 Invisible Security Patch for Netlify
+# No UI. No trust page. No design changes.
+# Place at public/_headers so Netlify publishes it as /_headers.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=(), browsing-topics=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  X-DNS-Prefetch-Control: on
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self'; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
+
+/api/*
+  Cache-Control: no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v66/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v67/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v68/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v70/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v71/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/v72/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
