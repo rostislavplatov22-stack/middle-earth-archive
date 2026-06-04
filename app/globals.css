@@ -4373,3 +4373,716 @@ body {
     display: none;
   }
 }
+
+/* v81 — Animated Eye of Sauron overlay for the approved premium homepage.
+   Paste this ENTIRE block at the very end of app/globals.css */
+
+.v81-home-wrap {
+  position: relative;
+  isolation: isolate;
+}
+
+.v81-eye-layer {
+  position: absolute;
+  top: 9.6%;
+  right: 10.4%;
+  width: clamp(48px, 4.2vw, 92px);
+  aspect-ratio: 1 / 1.15;
+  pointer-events: none;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(255, 133, 20, 0.4))
+    drop-shadow(0 0 18px rgba(255, 90, 0, 0.24));
+  animation: v81EyeFloat 5.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.v81-sauron-eye-orbit,
+.v81-sauron-eye-aura,
+.v81-sauron-eye-core,
+.v81-sauron-eye-particles,
+.v81-sauron-eye-iris,
+.v81-sauron-eye-pupil,
+.v81-sauron-eye-flare {
+  position: absolute;
+}
+
+.v81-sauron-eye-orbit {
+  width: 88%;
+  height: 88%;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 196, 96, 0.16);
+  box-shadow: inset 0 0 18px rgba(255, 177, 59, 0.08), 0 0 18px rgba(255, 132, 0, 0.12);
+  animation: v81EyeRotate 10s linear infinite;
+}
+
+.v81-sauron-eye-aura {
+  width: 130%;
+  height: 130%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 234, 167, 0.20) 0%,
+      rgba(255, 174, 51, 0.16) 18%,
+      rgba(255, 109, 21, 0.24) 34%,
+      rgba(255, 69, 0, 0.18) 50%,
+      rgba(255, 69, 0, 0.00) 72%);
+  filter: blur(6px);
+  animation: v81EyePulse 2.6s ease-in-out infinite;
+}
+
+.v81-sauron-eye-core {
+  width: 72%;
+  height: 50%;
+  border-radius: 999px / 72%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 247, 218, 0.98) 0%, rgba(255, 188, 80, 0.95) 20%, rgba(255, 112, 24, 0.92) 42%, rgba(184, 37, 8, 0.88) 82%, rgba(77, 7, 0, 0.92) 100%);
+  box-shadow:
+    0 0 10px rgba(255, 188, 80, 0.42),
+    0 0 28px rgba(255, 111, 0, 0.28),
+    inset 0 0 10px rgba(255, 255, 255, 0.24),
+    inset 0 0 16px rgba(115, 7, 0, 0.54);
+  overflow: hidden;
+  transform: perspective(220px) rotateX(10deg);
+  animation: v81EyeBlink 4.8s ease-in-out infinite;
+}
+
+.v81-sauron-eye-iris {
+  inset: 11% 26%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 243, 180, 0.98), rgba(255, 164, 38, 0.90) 48%, rgba(167, 25, 0, 0.92) 100%);
+  filter: blur(0.3px);
+  animation: v81IrisPulse 2.4s ease-in-out infinite;
+}
+
+.v81-sauron-eye-pupil {
+  left: 47%;
+  top: 6%;
+  width: 7%;
+  height: 88%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(to bottom, rgba(36, 0, 0, 0.96), rgba(0, 0, 0, 1) 44%, rgba(49, 0, 0, 0.96) 100%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.46);
+}
+
+.v81-sauron-eye-flare {
+  left: 22%;
+  top: 15%;
+  width: 20%;
+  height: 16%;
+  border-radius: 999px;
+  background: rgba(255, 248, 224, 0.62);
+  filter: blur(2px);
+  transform: rotate(-18deg);
+}
+
+.v81-sauron-eye-particles {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 208, 97, 0.95), rgba(255, 117, 0, 0.18) 68%, rgba(255, 117, 0, 0));
+  filter: blur(0.5px);
+}
+
+.v81-p1 { left: 12%; top: 16%; animation: v81Particle1 3.6s linear infinite; }
+.v81-p2 { right: 10%; top: 26%; animation: v81Particle2 3.1s linear infinite; }
+.v81-p3 { left: 44%; bottom: 8%; animation: v81Particle3 4.1s linear infinite; }
+
+@keyframes v81EyeFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-2px) scale(1.025); }
+}
+
+@keyframes v81EyePulse {
+  0%, 100% { opacity: 0.78; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes v81IrisPulse {
+  0%, 100% { transform: scale(1); filter: blur(0.3px) saturate(1); }
+  50% { transform: scale(1.06); filter: blur(0px) saturate(1.15); }
+}
+
+@keyframes v81EyeRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes v81EyeBlink {
+  0%, 44%, 52%, 100% { transform: perspective(220px) rotateX(10deg) scaleY(1); }
+  47%, 49% { transform: perspective(220px) rotateX(10deg) scaleY(0.18); }
+}
+
+@keyframes v81Particle1 {
+  0% { transform: translate3d(0, 0, 0) scale(0.4); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translate3d(18px, -30px, 0) scale(1.15); opacity: 0; }
+}
+
+@keyframes v81Particle2 {
+  0% { transform: translate3d(0, 0, 0) scale(0.5); opacity: 0; }
+  20% { opacity: 0.95; }
+  100% { transform: translate3d(-16px, -24px, 0) scale(1.05); opacity: 0; }
+}
+
+@keyframes v81Particle3 {
+  0% { transform: translate3d(0, 0, 0) scale(0.35); opacity: 0; }
+  24% { opacity: 0.85; }
+  100% { transform: translate3d(0, -22px, 0) scale(1); opacity: 0; }
+}
+
+@media (max-width: 1280px) {
+  .v81-eye-layer {
+    top: 9.8%;
+    right: 9.3%;
+    width: clamp(38px, 4.8vw, 72px);
+  }
+}
+
+@media (max-width: 900px) {
+  .v81-eye-layer {
+    top: 8.9%;
+    right: 7.6%;
+    width: clamp(28px, 5.2vw, 54px);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v81-eye-layer,
+  .v81-sauron-eye-orbit,
+  .v81-sauron-eye-aura,
+  .v81-sauron-eye-core,
+  .v81-sauron-eye-iris,
+  .v81-p1,
+  .v81-p2,
+  .v81-p3 {
+    animation: none !important;
+  }
+}
+
+/* v83 — Integrated animated Eye home replacement
+   The Eye is animated inside the replacement visual itself via animated WebP.
+   No separate visible eye overlay is placed on top of the page.
+   Paste this block at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+/* Remove previous failed overlays and pseudo animations */
+.v81-eye-layer,
+.v81-sauron-eye-orbit,
+.v81-sauron-eye-aura,
+.v81-sauron-eye-core,
+.v81-sauron-eye-particles,
+.v81-sauron-eye-iris,
+.v81-sauron-eye-pupil,
+.v81-sauron-eye-flare,
+.v805-chip-mask,
+.v805-chip-strip {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  animation: none !important;
+}
+
+.v804-stage::before,
+.v804-stage::after,
+.v804-stage picture::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.v83-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v83-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.v83-stage picture {
+  display: block;
+  width: 100%;
+}
+
+.v83-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+/* Invisible clickable zones */
+.v83-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v83-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+@media (hover: hover) {
+  .v83-hotspot:hover {
+    background: rgba(214, 177, 95, 0.035);
+    box-shadow:
+      0 0 0 1px rgba(214, 177, 95, 0.16) inset,
+      0 0 20px rgba(214, 177, 95, 0.10);
+  }
+}
+
+/* Coordinates for the generated integrated homepage visual */
+.v83-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v83-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v83-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v83-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v83-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v83-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v83-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v83-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v83-hotspot-gondor { left: 4.8%; top: 47.2%; width: 90.2%; height: 20.4%; border-radius: 20px; }
+.v83-hotspot-aragorn { left: 4.7%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v83-hotspot-ring { left: 22.6%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+@media (min-width: 1800px) {
+  .v83-stage {
+    max-width: 3840px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v83-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v83-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v83-hotspot {
+    display: none;
+  }
+}
+
+/* v83.1 — Modern premium Eye animation
+   Fixes cheap WebP flicker by using a clean static image + a tiny, masked, modern aperture glow.
+   Paste this block at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+/* Disable old cheap animated image / previous overlays */
+.v81-eye-layer,
+.v81-sauron-eye-orbit,
+.v81-sauron-eye-aura,
+.v81-sauron-eye-core,
+.v81-sauron-eye-particles,
+.v81-sauron-eye-iris,
+.v81-sauron-eye-pupil,
+.v81-sauron-eye-flare,
+.v805-chip-mask,
+.v805-chip-strip {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  animation: none !important;
+}
+
+.v804-stage::before,
+.v804-stage::after,
+.v804-stage picture::after,
+.v83-stage::before,
+.v83-stage::after,
+.v83-stage picture::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.v831-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v831-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.v831-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+/* The motion is tiny and clipped to the Eye itself.
+   It does not cover the whole tower or page. */
+.v831-eye-motion {
+  position: absolute;
+  left: 79.75%;
+  top: 9.05%;
+  width: 5.75%;
+  height: 9.2%;
+  z-index: 4;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  filter: saturate(0.94);
+  contain: layout paint;
+}
+
+.v831-eye-motion span {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Large layer is barely visible: more cinematic than game-like */
+.v831-eye-halo {
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255, 208, 91, 0.28) 0%,
+      rgba(255, 130, 28, 0.16) 22%,
+      rgba(198, 52, 8, 0.055) 48%,
+      rgba(198, 52, 8, 0.0) 72%);
+  filter: blur(7px);
+  opacity: 0.54;
+  transform-origin: center;
+  animation: v831HaloBreath 8.5s ease-in-out infinite;
+}
+
+/* Modern aperture: slow living eye, not flashing fire */
+.v831-eye-aperture {
+  inset: 23% 35%;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg,
+      rgba(255, 167, 49, 0.00) 0%,
+      rgba(255, 203, 96, 0.26) 42%,
+      rgba(255, 236, 157, 0.34) 50%,
+      rgba(255, 203, 96, 0.26) 58%,
+      rgba(255, 167, 49, 0.00) 100%);
+  box-shadow:
+    0 0 6px rgba(255, 176, 54, 0.22),
+    0 0 16px rgba(255, 96, 0, 0.16);
+  opacity: 0.46;
+  transform-origin: center;
+  animation: v831AperturePulse 6.6s cubic-bezier(.22,1,.36,1) infinite;
+}
+
+/* Tiny heat shimmer, almost invisible, adds modern polish */
+.v831-eye-heat {
+  inset: 18% 22%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 0deg,
+      rgba(255, 173, 54, 0.00),
+      rgba(255, 160, 48, 0.10),
+      rgba(255, 91, 18, 0.00),
+      rgba(255, 210, 105, 0.08),
+      rgba(255, 173, 54, 0.00));
+  filter: blur(4px);
+  opacity: 0.34;
+  animation: v831HeatRotate 18s linear infinite;
+}
+
+@keyframes v831HaloBreath {
+  0%, 100% {
+    opacity: 0.36;
+    transform: scale(0.94);
+    filter: blur(7px);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scale(1.06);
+    filter: blur(8.5px);
+  }
+}
+
+@keyframes v831AperturePulse {
+  0%, 100% {
+    opacity: 0.30;
+    transform: scaleX(0.82) scaleY(0.98);
+  }
+  45% {
+    opacity: 0.52;
+    transform: scaleX(1.05) scaleY(1.02);
+  }
+  62% {
+    opacity: 0.44;
+    transform: scaleX(0.94) scaleY(1.0);
+  }
+}
+
+@keyframes v831HeatRotate {
+  from { transform: rotate(0deg) scale(0.98); }
+  to { transform: rotate(360deg) scale(1.02); }
+}
+
+/* Invisible clickable zones */
+.v831-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v831-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+@media (hover: hover) {
+  .v831-hotspot:hover {
+    background: rgba(214, 177, 95, 0.035);
+    box-shadow:
+      0 0 0 1px rgba(214, 177, 95, 0.16) inset,
+      0 0 20px rgba(214, 177, 95, 0.10);
+  }
+}
+
+/* Coordinates */
+.v831-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v831-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v831-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v831-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v831-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v831-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v831-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v831-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v831-hotspot-gondor { left: 4.8%; top: 47.2%; width: 90.2%; height: 20.4%; border-radius: 20px; }
+.v831-hotspot-aragorn { left: 4.7%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v831-hotspot-ring { left: 22.6%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+@media (min-width: 1800px) {
+  .v831-stage {
+    max-width: 3840px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v831-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v831-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v831-eye-motion {
+    display: none;
+  }
+
+  .v831-hotspot {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v831-eye-motion,
+  .v831-eye-motion span {
+    animation: none !important;
+  }
+}
+
+/* v83.2 — Remove cheap Eye animation, keep premium static integrated visual.
+   Paste this at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+/* Disable every previous eye/fire animation and overlay */
+.v81-eye-layer,
+.v81-sauron-eye-orbit,
+.v81-sauron-eye-aura,
+.v81-sauron-eye-core,
+.v81-sauron-eye-particles,
+.v81-sauron-eye-iris,
+.v81-sauron-eye-pupil,
+.v81-sauron-eye-flare,
+.v831-eye-motion,
+.v831-eye-motion span,
+.v831-eye-halo,
+.v831-eye-aperture,
+.v831-eye-heat,
+.v805-chip-mask,
+.v805-chip-strip {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  animation: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.v804-stage::before,
+.v804-stage::after,
+.v804-stage picture::after,
+.v83-stage::before,
+.v83-stage::after,
+.v83-stage picture::after,
+.v831-stage::before,
+.v831-stage::after,
+.v831-stage picture::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.v832-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v832-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.v832-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+/* Keep only very refined interaction on invisible links */
+.v832-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v832-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Coordinates */
+.v832-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v832-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v832-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v832-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v832-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v832-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v832-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v832-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v832-hotspot-gondor { left: 4.8%; top: 47.2%; width: 90.2%; height: 20.4%; border-radius: 20px; }
+.v832-hotspot-aragorn { left: 4.7%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v832-hotspot-ring { left: 22.6%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+@media (min-width: 1800px) {
+  .v832-stage {
+    max-width: 3840px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v832-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v832-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v832-hotspot {
+    display: none;
+  }
+}
