@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { v77CharacterSearchEntries } from "@/lib/v77-character-data";
 
 type SearchResult = {
   id: string;
@@ -44,32 +45,25 @@ const asset = (name: string) => `/v72/assets/${name}`;
 
 const categoryTabs = [
   { label: "All Results", count: "12" },
-  { label: "Characters", count: "4" },
+  { label: "Characters", count: "70+" },
   { label: "Realms", count: "3" },
   { label: "Artifacts", count: "3" },
   { label: "Chronicles", count: "∞" },
   { label: "Maps", count: "2" },
 ];
 
+const characterQuickResults: SearchResult[] = v77CharacterSearchEntries.slice(0, 10).map((entry) => ({
+  id: entry.slug,
+  type: "Character",
+  title: entry.title,
+  subtitle: entry.excerpt,
+  href: entry.href,
+  image: entry.image,
+  tags: ["Character"],
+}));
+
 const quickResults: SearchResult[] = [
-  {
-    id: "gandalf",
-    type: "Character",
-    title: "Gandalf the Grey",
-    subtitle: "Istari, bearer of Narya, guide of the Free Peoples.",
-    href: "/characters/gandalf",
-    image: asset("char-gandalf.webp"),
-    tags: ["Istari", "Third Age"],
-  },
-  {
-    id: "galadriel",
-    type: "Character",
-    title: "Galadriel",
-    subtitle: "Lady of Lórien and bearer of Nenya.",
-    href: "/characters/galadriel",
-    image: asset("char-galadriel.webp"),
-    tags: ["Noldor", "Third Age"],
-  },
+  ...characterQuickResults,
   {
     id: "one-ring",
     type: "Artifact",
@@ -89,15 +83,6 @@ const quickResults: SearchResult[] = [
     tags: ["Wilderland", "Third Age"],
   },
   {
-    id: "rivendell",
-    type: "Realm",
-    title: "Rivendell",
-    subtitle: "The Last Homely House east of the Sea.",
-    href: "/realms/rivendell",
-    image: asset("realm-rivendell.webp"),
-    tags: ["Elven Realm", "Second Age"],
-  },
-  {
     id: "phial",
     type: "Artifact",
     title: "Phial of Galadriel",
@@ -107,8 +92,7 @@ const quickResults: SearchResult[] = [
     tags: ["Elven Artifact", "Third Age"],
   },
 ];
-
-const trending = ["Frodo Baggins", "One Ring", "Moria", "The Silmarils", "Aragorn", "Lothlórien"];
+const trending = ["Samwise Gamgee", "Bilbo Baggins", "Legolas", "Éowyn", "Elrond", "Sauron", "Beren", "Lúthien"];
 
 function mapRawResult(result: RawSearchResult, index: number): SearchResult {
   const type = result.type || result.category || "Archive";
@@ -147,15 +131,31 @@ export function V72PalantirSearch({ showFloatingTrigger = true, triggerLabel = "
   }, [loading, error, trimmed.length]);
 
   useEffect(() => {
+    const isEditableTarget = (target: EventTarget | null) => {
+      if (!(target instanceof HTMLElement)) return false;
+      const tag = target.tagName.toLowerCase();
+      return tag === "input" || tag === "textarea" || tag === "select" || target.isContentEditable;
+    };
+
     const onKey = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      const key = event.key.toLowerCase();
+      const editable = isEditableTarget(event.target);
+      const altK = event.altKey && !event.ctrlKey && !event.metaKey && key === "k";
+      const ctrlShiftK = (event.ctrlKey || event.metaKey) && event.shiftKey && key === "k";
+      const slashSearch = !editable && !event.altKey && !event.ctrlKey && !event.metaKey && event.key === "/";
+
+      if (altK || ctrlShiftK || slashSearch) {
         event.preventDefault();
+        event.stopPropagation();
         setOpen(true);
+        return;
       }
+
       if (event.key === "Escape") setOpen(false);
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
   }, []);
 
   useEffect(() => {
@@ -202,10 +202,10 @@ export function V72PalantirSearch({ showFloatingTrigger = true, triggerLabel = "
   return (
     <>
       {showFloatingTrigger && (
-        <button type="button" className={`v72s-trigger ${className}`} onClick={() => setOpen(true)} aria-label="Open Palantír search">
+        <button type="button" className={`v72s-trigger ${className}`} onClick={() => setOpen(true)} aria-label="Open Palantír search with Alt K">
           <span className="v72s-trigger-orb" aria-hidden="true" />
           <span>{triggerLabel}</span>
-          <kbd>⌘K</kbd>
+          <kbd>Alt K</kbd>
         </button>
       )}
 
@@ -236,7 +236,7 @@ export function V72PalantirSearch({ showFloatingTrigger = true, triggerLabel = "
               <h2 id="v72s-oracle-title">What do you seek?</h2>
               <label className="v72s-search-field">
                 <span className="v72s-search-mark" aria-hidden="true" />
-                <input ref={inputRef} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Gandalf, Galadriel, One Ring..." />
+                <input ref={inputRef} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Gandalf, Samwise, Lúthien, Sauron..." />
                 <button type="button" aria-label="Submit search"><span aria-hidden="true">→</span></button>
               </label>
 

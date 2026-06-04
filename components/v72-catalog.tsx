@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { v77CharacterCatalogEntries } from "@/lib/v77-character-data";
 
 // v72 — warm obsidian catalog consistency rebuild
 type CatalogKind = "All" | "Characters" | "Realms" | "Artifacts" | "Chronicles" | "Maps" | "Ages";
@@ -40,6 +41,10 @@ const categories: { label: CatalogKind; count: string; icon: string }[] = [
   { label: "Ages", count: "6", icon: "⌑" },
 ];
 
+const characters: CatalogEntry[] = v77CharacterCatalogEntries.map((entry, index) => ({
+  ...entry,
+  size: index === 0 ? "tall" : entry.size,
+}));
 const entries: CatalogEntry[] = [
   {
     id: "gondor",
@@ -53,17 +58,7 @@ const entries: CatalogEntry[] = [
     significance: "Legendary",
     size: "feature",
   },
-  {
-    id: "gandalf",
-    kind: "Characters",
-    title: "Gandalf the Grey",
-    subtitle: "Istari",
-    image: asset("char-gandalf.webp"),
-    href: "/characters/gandalf",
-    age: "Third Age",
-    significance: "Legendary",
-    size: "tall",
-  },
+  ...characters.slice(0, 4),
   {
     id: "one-ring",
     kind: "Artifacts",
@@ -75,153 +70,19 @@ const entries: CatalogEntry[] = [
     significance: "Legendary",
     size: "tall",
   },
-  {
-    id: "frodo",
-    kind: "Characters",
-    title: "Frodo Baggins",
-    subtitle: "Hobbit",
-    image: asset("char-frodo.webp"),
-    href: "/characters/frodo-baggins",
-    age: "Third Age",
-    significance: "Epic",
-  },
-  {
-    id: "rivendell",
-    kind: "Realms",
-    title: "Rivendell",
-    subtitle: "The Last Homely House",
-    image: asset("realm-rivendell.webp"),
-    href: "/realms/rivendell",
-    age: "Second Age",
-    significance: "Epic",
-  },
-  {
-    id: "phial-galadriel",
-    kind: "Artifacts",
-    title: "Phial of Galadriel",
-    subtitle: "Elven Artifact",
-    image: asset("artifact-phial.webp"),
-    href: "/artifacts/phial-of-galadriel",
-    age: "Third Age",
-    significance: "Epic",
-  },
-  {
-    id: "red-book",
-    kind: "Chronicles",
-    title: "The Red Book of Westmarch",
-    subtitle: "Hobbit Chronicle",
-    image: asset("chronicle-red-book.webp"),
-    href: "/chronicles/red-book-of-westmarch",
-    age: "Third Age",
-    significance: "Rare",
-  },
-  {
-    id: "map-middle-earth",
-    kind: "Maps",
-    title: "Map of Middle-earth",
-    subtitle: "Cartographer's Chart",
-    image: asset("map-middle-earth.webp"),
-    href: "/maps/middle-earth",
-    significance: "Notable",
-  },
-  {
-    id: "third-age",
-    kind: "Ages",
-    title: "Third Age",
-    subtitle: "The Age of Men",
-    image: asset("age-third.webp"),
-    href: "/ages/third-age",
-    significance: "Legendary",
-  },
-  {
-    id: "aragorn",
-    kind: "Characters",
-    title: "Aragorn",
-    subtitle: "Dúnedain",
-    image: asset("char-aragorn.webp"),
-    href: "/characters/aragorn",
-    age: "Third Age",
-    significance: "Legendary",
-  },
-  {
-    id: "mordor",
-    kind: "Realms",
-    title: "Mordor",
-    subtitle: "Land of Shadow",
-    image: asset("realm-mordor.webp"),
-    href: "/realms/mordor",
-    age: "Third Age",
-    significance: "Legendary",
-  },
-  {
-    id: "narsil",
-    kind: "Artifacts",
-    title: "Narsil",
-    subtitle: "Heirloom of Elendil",
-    image: asset("artifact-narsil.webp"),
-    href: "/artifacts/narsil",
-    age: "Second Age",
-    significance: "Epic",
-  },
-  {
-    id: "annals-beleriand",
-    kind: "Chronicles",
-    title: "Annals of Beleriand",
-    subtitle: "Elven Record",
-    image: asset("chronicle-annals.webp"),
-    href: "/chronicles/annals-of-beleriand",
-    age: "First Age",
-    significance: "Rare",
-  },
-  {
-    id: "minas-tirith-map",
-    kind: "Maps",
-    title: "Minas Tirith",
-    subtitle: "City of the Stewards",
-    image: asset("map-minas-tirith.webp"),
-    href: "/maps/minas-tirith",
-    age: "Third Age",
-    significance: "Notable",
-  },
-  {
-    id: "second-age",
-    kind: "Ages",
-    title: "Second Age",
-    subtitle: "The Age of Elves",
-    image: asset("age-second.webp"),
-    href: "/ages/second-age",
-    significance: "Legendary",
-  },
-  {
-    id: "galadriel",
-    kind: "Characters",
-    title: "Galadriel",
-    subtitle: "Lady of Lórien",
-    image: asset("char-galadriel.webp"),
-    href: "/characters/galadriel",
-    age: "Third Age",
-    significance: "Legendary",
-  },
-  {
-    id: "lorien",
-    kind: "Realms",
-    title: "Lórien",
-    subtitle: "The Golden Wood",
-    image: asset("realm-lorien.webp"),
-    href: "/realms/lorien",
-    age: "Third Age",
-    significance: "Epic",
-  },
-  {
-    id: "silmarillion",
-    kind: "Chronicles",
-    title: "The Silmarillion",
-    subtitle: "Ancient Chronicle",
-    image: asset("chronicle-silmarillion.webp"),
-    href: "/chronicles/the-silmarillion",
-    age: "First Age",
-    significance: "Legendary",
-  },
+  ...characters.slice(4),
+  { id: "rivendell", kind: "Realms", title: "Rivendell", subtitle: "The Last Homely House", image: asset("realm-rivendell.webp"), href: "/realms/rivendell", age: "Second Age", significance: "Epic" },
+  { id: "phial-galadriel", kind: "Artifacts", title: "Phial of Galadriel", subtitle: "Elven Artifact", image: asset("artifact-phial.webp"), href: "/artifacts/phial-of-galadriel", age: "Third Age", significance: "Epic" },
+  { id: "red-book", kind: "Chronicles", title: "The Red Book of Westmarch", subtitle: "Hobbit Chronicle", image: asset("chronicle-red-book.webp"), href: "/chronicles/red-book-of-westmarch", age: "Third Age", significance: "Rare" },
+  { id: "map-middle-earth", kind: "Maps", title: "Map of Middle-earth", subtitle: "Cartographer's Chart", image: asset("map-middle-earth.webp"), href: "/maps/middle-earth", significance: "Notable" },
+  { id: "third-age", kind: "Ages", title: "Third Age", subtitle: "The Age of Men", image: asset("age-third.webp"), href: "/ages/third-age", significance: "Legendary" },
+  { id: "mordor", kind: "Realms", title: "Mordor", subtitle: "Land of Shadow", image: asset("realm-mordor.webp"), href: "/realms/mordor", age: "Third Age", significance: "Legendary" },
+  { id: "narsil", kind: "Artifacts", title: "Narsil", subtitle: "Heirloom of Elendil", image: asset("artifact-narsil.webp"), href: "/artifacts/narsil", age: "Second Age", significance: "Epic" },
+  { id: "annals-beleriand", kind: "Chronicles", title: "Annals of Beleriand", subtitle: "Elven Record", image: asset("chronicle-annals.webp"), href: "/chronicles/annals-of-beleriand", age: "First Age", significance: "Rare" },
+  { id: "minas-tirith-map", kind: "Maps", title: "Minas Tirith", subtitle: "City of the Stewards", image: asset("map-minas-tirith.webp"), href: "/maps/minas-tirith", age: "Third Age", significance: "Notable" },
+  { id: "second-age", kind: "Ages", title: "Second Age", subtitle: "The Age of Elves", image: asset("age-second.webp"), href: "/ages/second-age", significance: "Legendary" },
+  { id: "lorien", kind: "Realms", title: "Lórien", subtitle: "The Golden Wood", image: asset("realm-lorien.webp"), href: "/realms/lorien", age: "Third Age", significance: "Epic" },
+  { id: "silmarillion", kind: "Chronicles", title: "The Silmarillion", subtitle: "Ancient Chronicle", image: asset("chronicle-silmarillion.webp"), href: "/chronicles/the-silmarillion", age: "First Age", significance: "Legendary" },
 ];
 
 const ages = ["First Age", "Second Age", "Third Age", "Fourth Age", "Timeless"];
@@ -237,6 +98,33 @@ export function V72Catalog() {
   const [selectedAges, setSelectedAges] = useState<string[]>([]);
   const [selectedRarity, setSelectedRarity] = useState<string[]>([]);
   const [view, setView] = useState<"grid" | "list">("grid");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type") || params.get("kind");
+    const q = params.get("query") || params.get("q");
+
+    if (q) setQuery(q);
+    if (type) {
+      const normalized = type.toLowerCase();
+      const map: Record<string, CatalogKind> = {
+        all: "All",
+        characters: "Characters",
+        character: "Characters",
+        realms: "Realms",
+        realm: "Realms",
+        artifacts: "Artifacts",
+        artifact: "Artifacts",
+        chronicles: "Chronicles",
+        chronicle: "Chronicles",
+        maps: "Maps",
+        map: "Maps",
+        ages: "Ages",
+        age: "Ages",
+      };
+      if (map[normalized]) setActive(map[normalized]);
+    }
+  }, []);
 
   const filtered = useMemo(() => {
     const term = normalize(query);
@@ -339,7 +227,7 @@ export function V72Catalog() {
 
         <div className="v72-results">
           <div className="v72-results-head">
-            <p>{filtered.length.toLocaleString()} visible from 8,248+ results</p>
+            <p>{filtered.length.toLocaleString()} visible from the expanded archive</p>
             <span>Viewing 1–{Math.min(filtered.length, 24)} of 8,248+</span>
           </div>
           <div className="v72-grid">
