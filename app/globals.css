@@ -2424,3 +2424,1468 @@ html.v68-oracle-open { overflow: hidden; }
   transform: scale(1.035);
   filter: saturate(1.08) contrast(1.09) brightness(.98);
 }
+/* v80 — Approved Premium Home Option 2 */
+:root {
+  --v80-black: #050503;
+  --v80-obsidian: #090805;
+  --v80-panel: rgba(8, 8, 5, 0.78);
+  --v80-panel-strong: rgba(3, 3, 2, 0.88);
+  --v80-gold: #b9954b;
+  --v80-gold-soft: #d8bf7a;
+  --v80-ivory: #f0ead9;
+  --v80-muted: rgba(240, 234, 217, 0.66);
+  --v80-line: rgba(216, 191, 122, 0.28);
+}
+
+.v80-home,
+.v80-home * {
+  box-sizing: border-box;
+}
+
+.v80-home {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--v80-ivory);
+  background: #050503;
+  font-family: var(--font-manrope, Manrope, Inter, system-ui, sans-serif);
+}
+
+.v80-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(4,4,2,0.98) 0%, rgba(4,4,2,0.72) 25%, rgba(4,4,2,0.18) 48%, rgba(4,4,2,0.62) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.12) 44%, rgba(0,0,0,0.88) 100%),
+    url('/v80/approved-home-option2.png') center top / cover no-repeat;
+  filter: saturate(0.96) contrast(1.05) brightness(0.82);
+}
+
+.v80-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(231, 194, 111, 0.14), transparent 28%),
+    radial-gradient(circle at 7% 8%, rgba(185, 149, 75, 0.12), transparent 24%),
+    linear-gradient(180deg, transparent 0 62%, rgba(3,3,2,0.85) 88%, #050503 100%);
+}
+
+.v80-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.13;
+  background-image: radial-gradient(rgba(255,255,255,0.22) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  mix-blend-mode: soft-light;
+}
+
+.v80-topbar,
+.v80-hero,
+.v80-featured-realm,
+.v80-card-grid,
+.v80-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.v80-topbar {
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto minmax(240px, 1fr);
+  align-items: center;
+  gap: 26px;
+  padding: 0 36px;
+  border-bottom: 1px solid rgba(216, 191, 122, 0.18);
+  background: linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.22));
+  backdrop-filter: blur(14px);
+}
+
+.v80-brand,
+.v80-nav a,
+.v80-palantir,
+.v80-card,
+.v80-category-rail a,
+.v80-featured-realm a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v80-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.v80-brand-mark {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216, 191, 122, 0.56);
+  border-radius: 50%;
+  color: var(--v80-gold-soft);
+  box-shadow: inset 0 0 24px rgba(216, 191, 122, 0.12), 0 0 28px rgba(0,0,0,0.5);
+}
+
+.v80-brand strong {
+  display: block;
+  font-family: var(--font-cinzel, Cinzel, serif);
+  font-size: 17px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+  white-space: nowrap;
+}
+
+.v80-brand em {
+  display: block;
+  margin-top: 3px;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(240,234,217,0.5);
+}
+
+.v80-nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 48px);
+  align-items: center;
+}
+
+.v80-nav a,
+.v80-palantir {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(240,234,217,0.74);
+}
+
+.v80-nav a:first-child {
+  color: var(--v80-gold-soft);
+}
+
+.v80-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+}
+
+.v80-palantir {
+  min-height: 42px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(216, 191, 122, 0.44);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.34);
+}
+
+.v80-menu {
+  width: 38px;
+  border: 0;
+  background: transparent;
+  display: grid;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.v80-menu span {
+  display: block;
+  height: 1px;
+  background: var(--v80-gold-soft);
+}
+
+.v80-hero {
+  padding: 24px clamp(24px, 5vw, 86px) 0;
+}
+
+.v80-hero-frame {
+  min-height: 438px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 38px clamp(24px, 7vw, 120px);
+  border: 1px solid rgba(216, 191, 122, 0.24);
+  border-radius: 44px 44px 0 0;
+  background:
+    linear-gradient(90deg, rgba(4,4,2,0.72), transparent 32%, transparent 68%, rgba(4,4,2,0.78)),
+    rgba(0,0,0,0.12);
+  box-shadow: inset 0 0 90px rgba(0,0,0,0.74), 0 26px 90px rgba(0,0,0,0.56);
+}
+
+.v80-title-block {
+  max-width: 760px;
+  text-align: center;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.86);
+}
+
+.v80-kicker,
+.v80-mantra,
+.v80-card p,
+.v80-realm-copy p {
+  margin: 0;
+  font-family: var(--font-cinzel, Cinzel, serif);
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+}
+
+.v80-kicker {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.v80-title-block h1 {
+  margin: 0;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(58px, 8.6vw, 156px);
+  line-height: 0.82;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 236, 214, 0.92);
+  font-weight: 500;
+}
+
+.v80-subtitle {
+  margin: 20px 0 0;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: clamp(16px, 1.5vw, 24px);
+  color: rgba(240,234,217,0.74);
+}
+
+.v80-mantra {
+  margin-top: 16px;
+  font-size: 11px;
+}
+
+.v80-search {
+  width: min(760px, 100%);
+  min-height: 58px;
+  margin-top: 28px;
+  padding: 0 8px 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(216, 191, 122, 0.36);
+  border-radius: 999px;
+  background: rgba(3,3,2,0.72);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 48px rgba(0,0,0,0.5);
+  backdrop-filter: blur(18px);
+}
+
+.v80-search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: none;
+  color: var(--v80-ivory);
+  background: transparent;
+  font-size: 15px;
+}
+
+.v80-search span {
+  color: var(--v80-gold-soft);
+}
+
+.v80-search button {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(216, 191, 122, 0.34);
+  border-radius: 50%;
+  color: var(--v80-ivory);
+  background: radial-gradient(circle, rgba(216,191,122,0.38), rgba(0,0,0,0.56));
+}
+
+.v80-category-rail {
+  width: min(1500px, 100%);
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.v80-category-rail a {
+  min-height: 56px;
+  padding: 10px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(216, 191, 122, 0.28);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.52);
+  backdrop-filter: blur(16px);
+}
+
+.v80-category-rail strong {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+}
+
+.v80-category-rail small {
+  color: rgba(240,234,217,0.62);
+}
+
+.v80-featured-realm,
+.v80-card-grid,
+.v80-footer {
+  margin-left: clamp(24px, 5vw, 86px);
+  margin-right: clamp(24px, 5vw, 86px);
+}
+
+.v80-featured-realm {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 14px;
+}
+
+.v80-featured-realm article {
+  min-height: 232px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 34px clamp(24px, 4vw, 70px);
+  border: 1px solid rgba(216, 191, 122, 0.34);
+  border-radius: 20px;
+  background:
+    linear-gradient(90deg, rgba(4,4,2,0.9), rgba(4,4,2,0.52) 33%, rgba(4,4,2,0.25) 60%, rgba(4,4,2,0.84)),
+    url('/v71/assets/realm-gondor.webp') center / cover no-repeat;
+  box-shadow: inset 0 0 88px rgba(0,0,0,0.6), 0 24px 60px rgba(0,0,0,0.46);
+}
+
+.v80-realm-copy {
+  max-width: 540px;
+}
+
+.v80-realm-copy p,
+.v80-card p {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.v80-realm-copy h2 {
+  margin: 0;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: clamp(42px, 5vw, 76px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.v80-realm-copy strong {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 24px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+}
+
+.v80-realm-copy span {
+  display: block;
+  margin-top: 18px;
+  max-width: 450px;
+  line-height: 1.7;
+  color: rgba(240,234,217,0.72);
+}
+
+.v80-realm-copy a {
+  margin-top: 20px;
+  min-height: 42px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(216, 191, 122, 0.32);
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+  background: rgba(0,0,0,0.42);
+}
+
+.v80-realm-emblem {
+  margin-left: auto;
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216,191,122,0.36);
+  color: var(--v80-gold-soft);
+  font-size: 56px;
+  opacity: 0.72;
+}
+
+.v80-side-arrow {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(216, 191, 122, 0.32);
+  border-radius: 50%;
+  color: var(--v80-gold-soft);
+  background: rgba(0,0,0,0.52);
+  font-size: 28px;
+}
+
+.v80-card-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.v80-card {
+  min-height: 230px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid rgba(216, 191, 122, 0.3);
+  border-radius: 16px;
+  background: var(--v80-panel);
+  box-shadow: inset 0 0 46px rgba(0,0,0,0.54);
+}
+
+.v80-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.72) saturate(0.88) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.v80-card-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.18) 32%, rgba(0,0,0,0.84) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.66), transparent 64%);
+}
+
+.v80-card div {
+  position: relative;
+  z-index: 1;
+  padding: 22px;
+  max-width: 88%;
+}
+
+.v80-card h3 {
+  margin: 0;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: clamp(25px, 2.3vw, 36px);
+  line-height: 0.96;
+  letter-spacing: 0.08em;
+  color: rgba(244,236,214,0.95);
+}
+
+.v80-card div > span {
+  display: block;
+  margin-top: 10px;
+  max-width: 260px;
+  color: rgba(240,234,217,0.68);
+  line-height: 1.45;
+}
+
+.v80-card em {
+  display: block;
+  margin-top: 18px;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--v80-gold-soft);
+}
+
+.v80-footer {
+  margin-top: 22px;
+  margin-bottom: 28px;
+  min-height: 70px;
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  align-items: center;
+  gap: 24px;
+  padding: 0 34px;
+  border: 1px solid rgba(216, 191, 122, 0.22);
+  border-radius: 16px;
+  background: rgba(0,0,0,0.5);
+}
+
+.v80-footer p,
+.v80-footer span {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(240,234,217,0.62);
+}
+
+.v80-footer div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.v80-footer strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--v80-gold-soft);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+@media (hover: hover) {
+  .v80-category-rail a,
+  .v80-card,
+  .v80-realm-copy a,
+  .v80-palantir {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  }
+  .v80-category-rail a:hover,
+  .v80-card:hover,
+  .v80-palantir:hover {
+    transform: translateY(-2px);
+    border-color: rgba(216,191,122,0.58);
+    box-shadow: 0 22px 58px rgba(0,0,0,0.54);
+  }
+}
+
+@media (max-width: 1180px) {
+  .v80-topbar {
+    grid-template-columns: 1fr auto;
+  }
+  .v80-nav {
+    display: none;
+  }
+  .v80-category-rail {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .v80-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .v80-footer,
+  .v80-footer div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .v80-topbar {
+    padding: 14px 18px;
+    min-height: 72px;
+  }
+  .v80-brand strong {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+  }
+  .v80-brand em,
+  .v80-palantir {
+    display: none;
+  }
+  .v80-brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+  .v80-hero {
+    padding: 16px 14px 0;
+  }
+  .v80-hero-frame {
+    min-height: 500px;
+    padding: 32px 16px;
+    border-radius: 30px 30px 0 0;
+    justify-content: flex-start;
+  }
+  .v80-title-block {
+    text-align: left;
+    width: 100%;
+  }
+  .v80-title-block h1 {
+    font-size: clamp(46px, 15vw, 82px);
+    letter-spacing: 0.05em;
+    line-height: 0.92;
+    overflow-wrap: anywhere;
+  }
+  .v80-search {
+    min-height: 52px;
+  }
+  .v80-category-rail {
+    grid-template-columns: 1fr 1fr;
+  }
+  .v80-featured-realm,
+  .v80-card-grid,
+  .v80-footer {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+  .v80-featured-realm {
+    grid-template-columns: 1fr;
+  }
+  .v80-side-arrow,
+  .v80-realm-emblem {
+    display: none;
+  }
+  .v80-featured-realm article {
+    min-height: 330px;
+    align-items: flex-end;
+    padding: 24px;
+  }
+  .v80-realm-copy h2 {
+    font-size: 45px;
+  }
+  .v80-card-grid,
+  .v80-footer,
+  .v80-footer div {
+    grid-template-columns: 1fr;
+  }
+  .v80-card {
+    min-height: 250px;
+  }
+}
+/* v80.1 — Real Premium Home Fix
+   Fixes the failed screenshot-like homepage by using real layout, safe text zones,
+   controlled overlays, and premium typography. Add this at the very end of app/globals.css. */
+
+.v801-home,
+.v801-home * {
+  box-sizing: border-box;
+}
+
+.v801-home {
+  --v801-black: #030302;
+  --v801-obsidian: #080705;
+  --v801-panel: rgba(8, 7, 5, 0.78);
+  --v801-line: rgba(205, 174, 98, 0.27);
+  --v801-gold: #c9a85f;
+  --v801-gold-soft: #9b8249;
+  --v801-ivory: #eee7d6;
+  --v801-muted: rgba(238, 231, 214, 0.7);
+  --v801-faint: rgba(238, 231, 214, 0.46);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 62% 14%, rgba(190, 143, 58, 0.12), transparent 34rem),
+    linear-gradient(180deg, #050403 0%, #020201 68%, #050403 100%);
+  color: var(--v801-ivory);
+  font-family: Manrope, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.v801-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v801-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 82px;
+  padding: 0 3.2vw;
+  display: grid;
+  grid-template-columns: 300px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--v801-line);
+  background: rgba(3, 3, 2, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.v801-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  font-family: Cinzel, "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--v801-gold);
+}
+
+.v801-brand span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(201, 168, 95, 0.46);
+  border-radius: 999px;
+  font-size: 18px;
+}
+
+.v801-brand strong {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.v801-navlinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(18px, 2.1vw, 42px);
+  min-width: 0;
+}
+
+.v801-navlinks a,
+.v801-access {
+  font-family: Cinzel, Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(238, 231, 214, 0.72);
+  transition: color 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.v801-navlinks a:hover,
+.v801-access:hover {
+  color: var(--v801-gold);
+}
+
+.v801-access {
+  justify-self: end;
+  padding: 13px 22px;
+  border: 1px solid rgba(201, 168, 95, 0.38);
+  border-radius: 999px;
+  color: var(--v801-gold);
+  background: rgba(0,0,0,.24);
+}
+
+.v801-hero {
+  position: relative;
+  min-height: clamp(560px, 62vh, 760px);
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 168, 95, 0.14);
+}
+
+.v801-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 3vw 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,95,.36), transparent);
+  z-index: 3;
+}
+
+.v801-hero-img {
+  object-fit: cover;
+  object-position: 62% center;
+  opacity: 0.78;
+  filter: saturate(0.82) contrast(1.04) brightness(0.74);
+  z-index: -3;
+}
+
+.v801-hero-mask {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(2,2,1,0.98) 0%, rgba(2,2,1,0.9) 21%, rgba(2,2,1,0.42) 50%, rgba(2,2,1,0.22) 76%, rgba(2,2,1,0.68) 100%),
+    linear-gradient(180deg, rgba(2,2,1,0.82) 0%, rgba(2,2,1,0.14) 34%, rgba(2,2,1,0.92) 100%),
+    radial-gradient(circle at 68% 26%, rgba(201,168,95,.16), transparent 34rem);
+  z-index: -2;
+}
+
+.v801-hero-copy {
+  width: min(760px, 48vw);
+  margin-left: clamp(34px, 5.4vw, 110px);
+  padding: 56px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.v801-kicker {
+  margin: 0 0 22px;
+  font-family: Cinzel, Georgia, serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--v801-gold);
+  font-size: clamp(11px, 0.85vw, 14px);
+  font-weight: 600;
+}
+
+.v801-hero h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  font-size: clamp(72px, 8.2vw, 158px);
+  line-height: 0.76;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  color: var(--v801-ivory);
+  text-shadow: 0 18px 48px rgba(0,0,0,.64);
+  max-width: 100%;
+}
+
+.v801-line {
+  margin: 30px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  color: var(--v801-gold);
+  font-size: clamp(18px, 1.5vw, 26px);
+  letter-spacing: 0.045em;
+}
+
+.v801-description {
+  max-width: 520px;
+  margin: 14px 0 0;
+  font-size: clamp(14px, 0.96vw, 17px);
+  line-height: 1.74;
+  color: var(--v801-muted);
+}
+
+.v801-search {
+  width: min(640px, 100%);
+  height: 58px;
+  margin-top: 30px;
+  padding: 0 12px 0 24px;
+  display: grid;
+  grid-template-columns: 26px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(201,168,95,.36);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(8,7,5,.74), rgba(2,2,1,.72));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.025), 0 22px 60px rgba(0,0,0,.34);
+  color: var(--v801-muted);
+}
+
+.v801-search span,
+.v801-search i {
+  color: var(--v801-gold);
+  font-style: normal;
+}
+
+.v801-search b {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(238,231,214,.64);
+}
+
+.v801-search i {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(201,168,95,.12);
+  border: 1px solid rgba(201,168,95,.24);
+}
+
+.v801-collection-rail {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(96px, 1fr));
+  gap: 10px;
+  width: min(920px, calc(100vw - 10vw));
+}
+
+.v801-collection-rail a {
+  min-height: 62px;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  grid-template-areas:
+    "icon label"
+    "icon count";
+  align-items: center;
+  column-gap: 10px;
+  border: 1px solid rgba(201,168,95,.22);
+  border-radius: 16px;
+  background: rgba(6,5,4,.62);
+}
+
+.v801-collection-rail span {
+  grid-area: icon;
+  color: var(--v801-gold);
+  font-size: 20px;
+}
+
+.v801-collection-rail em {
+  grid-area: label;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--v801-gold);
+}
+
+.v801-collection-rail strong {
+  grid-area: count;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--v801-ivory);
+}
+
+.v801-showcase,
+.v801-lower {
+  padding: 26px 3.2vw 0;
+  display: grid;
+  gap: 18px;
+}
+
+.v801-showcase {
+  grid-template-columns: 1.7fr 1fr 1fr;
+  margin-top: -18px;
+  position: relative;
+  z-index: 5;
+}
+
+.v801-lower {
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 26px;
+}
+
+.v801-card {
+  position: relative;
+  min-height: 270px;
+  display: flex;
+  align-items: end;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,95,.28);
+  border-radius: 20px;
+  background: var(--v801-panel);
+  box-shadow: 0 24px 80px rgba(0,0,0,.24);
+}
+
+.v801-card-wide {
+  min-height: 300px;
+}
+
+.v801-card img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.82) contrast(1.04) brightness(.78);
+  transform: scale(1.01);
+  transition: transform .55s ease, filter .55s ease;
+}
+
+.v801-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(.92) contrast(1.08) brightness(.84);
+}
+
+.v801-card-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255,211,125,.12), transparent 18rem),
+    linear-gradient(180deg, rgba(2,2,1,.08), rgba(2,2,1,.3) 42%, rgba(2,2,1,.94) 100%);
+  z-index: 1;
+}
+
+.v801-card-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3,3,2,.88) 0%, rgba(3,3,2,.62) 38%, rgba(3,3,2,.14) 72%, rgba(3,3,2,.56) 100%);
+  z-index: 2;
+  opacity: .94;
+}
+
+.v801-card-content {
+  position: relative;
+  z-index: 3;
+  width: min(520px, 84%);
+  padding: clamp(22px, 2.2vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.v801-eyebrow {
+  font-family: Cinzel, Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--v801-gold);
+  margin-bottom: 12px;
+}
+
+.v801-card strong {
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  font-size: clamp(31px, 3.5vw, 62px);
+  line-height: .92;
+  letter-spacing: .08em;
+  font-weight: 500;
+  color: var(--v801-ivory);
+  text-shadow: 0 10px 30px rgba(0,0,0,.62);
+  max-width: 11ch;
+}
+
+.v801-lower .v801-card strong {
+  font-size: clamp(26px, 2.2vw, 42px);
+}
+
+.v801-card em {
+  margin-top: 10px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(18px, 1.4vw, 24px);
+  line-height: 1.05;
+  font-style: normal;
+  color: var(--v801-gold);
+  max-width: 20ch;
+}
+
+.v801-card small {
+  margin-top: 12px;
+  display: block;
+  max-width: 38ch;
+  font-size: 14px;
+  line-height: 1.58;
+  color: rgba(238,231,214,.68);
+}
+
+.v801-link {
+  margin-top: 22px;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--v801-gold);
+}
+
+.v801-footer {
+  margin: 0 3.2vw 28px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+  border: 1px solid rgba(201,168,95,.18);
+  border-radius: 18px;
+  background: rgba(7,6,4,.58);
+  color: rgba(201,168,95,.8);
+  font-family: Cinzel, Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1120px) {
+  .v801-nav {
+    grid-template-columns: 1fr auto;
+  }
+  .v801-navlinks {
+    display: none;
+  }
+  .v801-showcase,
+  .v801-lower {
+    grid-template-columns: 1fr 1fr;
+  }
+  .v801-card-wide {
+    grid-column: span 2;
+  }
+  .v801-hero-copy {
+    width: min(760px, 70vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .v801-nav {
+    min-height: 68px;
+    padding: 0 18px;
+  }
+  .v801-brand strong {
+    font-size: 12px;
+    white-space: normal;
+    line-height: 1.25;
+  }
+  .v801-access {
+    display: none;
+  }
+  .v801-hero {
+    min-height: auto;
+    padding: 72px 18px 34px;
+    align-items: flex-start;
+  }
+  .v801-hero-img {
+    object-position: 66% center;
+    opacity: .64;
+  }
+  .v801-hero-mask {
+    background:
+      linear-gradient(180deg, rgba(2,2,1,.94) 0%, rgba(2,2,1,.68) 36%, rgba(2,2,1,.96) 100%),
+      linear-gradient(90deg, rgba(2,2,1,.95), rgba(2,2,1,.5));
+  }
+  .v801-hero-copy {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .v801-hero h1 {
+    font-size: clamp(50px, 17vw, 74px);
+    line-height: .86;
+    letter-spacing: .035em;
+  }
+  .v801-line {
+    font-size: 20px;
+  }
+  .v801-description {
+    max-width: 34ch;
+    font-size: 14px;
+  }
+  .v801-search {
+    height: 54px;
+    margin-top: 24px;
+  }
+  .v801-collection-rail {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+  .v801-showcase,
+  .v801-lower {
+    padding: 16px 18px 0;
+    grid-template-columns: 1fr;
+  }
+  .v801-card-wide {
+    grid-column: auto;
+  }
+  .v801-card,
+  .v801-card-wide {
+    min-height: 240px;
+    border-radius: 18px;
+  }
+  .v801-card-content {
+    width: 92%;
+    padding: 22px;
+  }
+  .v801-card strong,
+  .v801-lower .v801-card strong {
+    font-size: clamp(30px, 10vw, 46px);
+    max-width: 12ch;
+  }
+  .v801-card small {
+    max-width: 30ch;
+    font-size: 13px;
+  }
+  .v801-footer {
+    margin: 18px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v801-card img,
+  .v801-navlinks a,
+  .v801-access {
+    transition: none !important;
+  }
+}
+/* v80.2 — Emergency Visual Scale Fix
+   Put this at the VERY END of app/globals.css.
+   It fixes the broken oversized / blurry detail-page image scale after v80/v80.1. */
+
+/* Global safety: never let media overflow the viewport */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* Fix v70 detail pages that became giant/blurry after home experiments */
+.v70-shell {
+  width: 100% !important;
+  max-width: 100vw !important;
+  min-height: 100vh !important;
+  overflow-x: clip !important;
+  background: #030302 !important;
+}
+
+.v70-shell .v70-hero {
+  position: relative !important;
+  width: min(100%, 100vw) !important;
+  min-height: clamp(620px, 78vh, 860px) !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr) !important;
+  align-items: center !important;
+  gap: clamp(28px, 4vw, 72px) !important;
+  padding: clamp(88px, 8vw, 140px) clamp(28px, 5vw, 86px) clamp(46px, 6vw, 92px) !important;
+}
+
+.v70-shell .v70-hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  transform: none !important;
+  border-radius: 0 !important;
+}
+
+.v70-shell .v70-hero-image img,
+.v70-shell .v70-object-frame img,
+.v70-shell .v70-related img,
+.v70-shell .v70-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  transform: none !important;
+}
+
+.v70-shell .v70-hero-image img {
+  object-position: center !important;
+  filter: saturate(.82) contrast(1.02) brightness(.58) !important;
+  opacity: .82 !important;
+}
+
+.v70-shell .v70-hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(90deg, rgba(2,2,1,.96) 0%, rgba(2,2,1,.78) 33%, rgba(2,2,1,.36) 62%, rgba(2,2,1,.78) 100%),
+    linear-gradient(180deg, rgba(2,2,1,.86) 0%, rgba(2,2,1,.18) 42%, rgba(2,2,1,.96) 100%) !important;
+}
+
+.v70-shell .v70-vertical-label,
+.v70-shell .v70-copy,
+.v70-shell .v70-object,
+.v70-shell .v70-ledger {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.v70-shell .v70-copy {
+  max-width: 760px !important;
+  width: 100% !important;
+  grid-column: 1 !important;
+  align-self: center !important;
+}
+
+.v70-shell .v70-copy h1,
+.v70-shell #v70-title {
+  font-size: clamp(72px, 7.2vw, 132px) !important;
+  line-height: .82 !important;
+  letter-spacing: .035em !important;
+  overflow-wrap: break-word !important;
+  text-wrap: balance !important;
+  max-width: 10ch !important;
+  margin: 0 !important;
+}
+
+.v70-shell .v70-subtitle {
+  font-size: clamp(22px, 2vw, 36px) !important;
+  line-height: 1.1 !important;
+  max-width: 28ch !important;
+}
+
+.v70-shell .v70-description {
+  max-width: 54ch !important;
+  font-size: clamp(15px, 1vw, 18px) !important;
+  line-height: 1.72 !important;
+}
+
+.v70-shell .v70-object {
+  grid-column: 2 !important;
+  width: min(390px, 32vw) !important;
+  justify-self: center !important;
+}
+
+.v70-shell .v70-object-frame {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 5 !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(201,168,95,.28) !important;
+  background: rgba(0,0,0,.44) !important;
+}
+
+.v70-shell .v70-ledger {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: 1320px !important;
+  align-self: end !important;
+  margin: 28px auto 0 !important;
+}
+
+/* If an Age page has no portrait object, keep the hero elegant and do not zoom a texture */
+.v70-shell:has(.v70-copy h1) .v70-hero {
+  isolation: isolate !important;
+}
+
+/* Fix v80.1 home image/cards if old CSS still conflicts */
+.v801-home {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+
+.v801-home .v801-hero {
+  min-height: clamp(560px, 68vh, 760px) !important;
+  overflow: hidden !important;
+}
+
+.v801-home .v801-hero-img,
+.v801-home .v801-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  max-width: none !important;
+}
+
+.v801-home .v801-hero h1 {
+  font-size: clamp(72px, 8vw, 150px) !important;
+  line-height: .78 !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 900px) {
+  .v70-shell .v70-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    min-height: auto !important;
+    padding: 96px 22px 42px !important;
+  }
+
+  .v70-shell .v70-copy {
+    max-width: 100% !important;
+  }
+
+  .v70-shell .v70-copy h1,
+  .v70-shell #v70-title {
+    font-size: clamp(46px, 15vw, 78px) !important;
+    line-height: .88 !important;
+    max-width: 100% !important;
+  }
+
+  .v70-shell .v70-subtitle {
+    font-size: clamp(20px, 6vw, 30px) !important;
+  }
+
+  .v70-shell .v70-object {
+    width: min(100%, 360px) !important;
+    align-self: center !important;
+  }
+
+  .v70-shell .v70-ledger {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .v801-home .v801-hero h1 {
+    font-size: clamp(48px, 16vw, 74px) !important;
+    line-height: .86 !important;
+  }
+}
+
+/* v80.3 — Exact Approved Home Visual
+   This intentionally uses the approved visual as the home page layer,
+   so the live site matches the chosen reference instead of approximating it with conflicting text layers.
+   Paste at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+.v803-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v803-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+}
+
+.v803-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Invisible clickable areas over the static approved design */
+.v803-hotspot {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v803-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Coordinates are percentages of the approved 1792x1024 image */
+.v803-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v803-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v803-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v803-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v803-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v803-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v803-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v803-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v803-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v803-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v803-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+/* Mobile: keep the exact image ratio and allow normal vertical scrolling. */
+@media (max-width: 760px) {
+  .v803-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v803-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v803-hotspot {
+    display: none;
+  }
+}

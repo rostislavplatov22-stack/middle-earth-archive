@@ -1,28 +1,85 @@
-/* v78.2 Premium Character Portrait Integration
-   Add this block at the very end of app/globals.css. It does not change layout logic; it only improves portrait presentation. */
 
-.v72-card img {
-  object-fit: cover;
-  object-position: center top;
-  filter: saturate(1.04) contrast(1.06) brightness(.93);
+/* v80.3 — Exact Approved Home Visual
+   This intentionally uses the approved visual as the home page layer,
+   so the live site matches the chosen reference instead of approximating it with conflicting text layers.
+   Paste at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
 }
 
-.v72-card[href^="/characters/"] img {
-  object-position: center 18%;
+.v803-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
 }
 
-.v72-card[href^="/characters/"]::after {
-  background:
-    linear-gradient(180deg, rgba(4, 4, 3, 0) 24%, rgba(2, 2, 2, .42) 58%, rgba(2, 2, 2, .95) 100%),
-    radial-gradient(circle at 50% 16%, rgba(213, 178, 91, .10), transparent 46%);
+.v803-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
 }
 
-.v72-card[href^="/characters/"] .v72-card-copy h2 {
-  letter-spacing: .01em;
-  text-shadow: 0 2px 18px rgba(0,0,0,.86);
+.v803-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.v72-card[href^="/characters/"]:hover img {
-  transform: scale(1.035);
-  filter: saturate(1.08) contrast(1.09) brightness(.98);
+/* Invisible clickable areas over the static approved design */
+.v803-hotspot {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v803-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Coordinates are percentages of the approved 1792x1024 image */
+.v803-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v803-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v803-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v803-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v803-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v803-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v803-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v803-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v803-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v803-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v803-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+/* Mobile: keep the exact image ratio and allow normal vertical scrolling. */
+@media (max-width: 760px) {
+  .v803-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v803-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v803-hotspot {
+    display: none;
+  }
 }
