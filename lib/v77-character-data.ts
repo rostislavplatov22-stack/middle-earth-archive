@@ -1,4 +1,5 @@
 import type { V70DetailRecord } from "@/lib/v70-detail-data";
+import { getV78CharacterPortrait } from "@/lib/v78-character-portraits";
 export type V77CharacterSignificance = "Legendary" | "Epic" | "Rare" | "Notable";
 export type V77CharacterTheme = "wizard" | "hobbit" | "ranger" | "elf" | "dark" | "forest" | "king" | "dwarf" | "shieldmaiden";
 export type V77Character = {
@@ -14,29 +15,6 @@ export type V77Character = {
   description: string;
 };
 
-const catalogImageByTheme: Record<V77CharacterTheme, string> = {
-  wizard: "/v72/assets/char-gandalf.webp",
-  hobbit: "/v72/assets/char-frodo.webp",
-  ranger: "/v72/assets/char-aragorn.webp",
-  elf: "/v72/assets/char-galadriel.webp",
-  dark: "/v72/assets/realm-mordor.webp",
-  forest: "/v72/assets/realm-lorien.webp",
-  king: "/v72/assets/realm-gondor.webp",
-  dwarf: "/v72/assets/realm-rivendell.webp",
-  shieldmaiden: "/v72/assets/char-galadriel.webp",
-};
-
-const detailImageByTheme: Record<V77CharacterTheme, string> = {
-  wizard: "/v70/assets/char-gandalf.webp",
-  hobbit: "/v70/assets/char-frodo.webp",
-  ranger: "/v70/assets/char-aragorn.webp",
-  elf: "/v70/assets/char-galadriel.webp",
-  dark: "/v70/assets/realm-mordor.webp",
-  forest: "/v70/assets/realm-lorien.webp",
-  king: "/v70/assets/realm-gondor-wide.webp",
-  dwarf: "/v70/assets/realm-rivendell.webp",
-  shieldmaiden: "/v70/assets/char-galadriel.webp",
-};
 
 const heroImageByAge = (age: string, theme: V77CharacterTheme) => {
   if (theme === "dark") return "/v70/assets/realm-mordor.webp";
@@ -125,7 +103,7 @@ export const v77CharacterCatalogEntries = v77Characters.map((character, index) =
   title: character.title,
   subtitle: character.subtitle,
   description: character.description,
-  image: catalogImageByTheme[character.theme],
+  image: getV78CharacterPortrait(character.slug, "catalog"),
   href: `/characters/${character.slug}`,
   age: character.age,
   significance: character.significance,
@@ -138,7 +116,7 @@ export const v77CharacterSearchEntries = v77Characters.map((character) => ({
   slug: character.slug,
   href: `/characters/${character.slug}`,
   excerpt: `${character.subtitle}. ${character.description}`,
-  image: catalogImageByTheme[character.theme],
+  image: getV78CharacterPortrait(character.slug, "catalog"),
 }));
 
 export function getV77CharacterBySlug(slug: string) {
@@ -149,7 +127,7 @@ export function getV77CharacterDetailRecord(slug: string): V70DetailRecord | und
   const character = getV77CharacterBySlug(slug);
   if (!character) return undefined;
 
-  const image = detailImageByTheme[character.theme];
+  const image = getV78CharacterPortrait(character.slug, "detail");
   const heroImage = heroImageByAge(character.age, character.theme);
   const searchHref = `/catalog?query=${encodeURIComponent(character.title)}`;
   const ageTitle = character.age.includes("First") ? "First Age" : character.age.includes("Second") ? "Second Age" : character.age.includes("Third") ? "Third Age" : "Character Era";

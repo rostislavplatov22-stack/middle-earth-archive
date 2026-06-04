@@ -2396,3 +2396,31 @@ html.v68-oracle-open { overflow: hidden; }
   }
 }
 
+/* v78.2 Premium Character Portrait Integration
+   Add this block at the very end of app/globals.css. It does not change layout logic; it only improves portrait presentation. */
+
+.v72-card img {
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.04) contrast(1.06) brightness(.93);
+}
+
+.v72-card[href^="/characters/"] img {
+  object-position: center 18%;
+}
+
+.v72-card[href^="/characters/"]::after {
+  background:
+    linear-gradient(180deg, rgba(4, 4, 3, 0) 24%, rgba(2, 2, 2, .42) 58%, rgba(2, 2, 2, .95) 100%),
+    radial-gradient(circle at 50% 16%, rgba(213, 178, 91, .10), transparent 46%);
+}
+
+.v72-card[href^="/characters/"] .v72-card-copy h2 {
+  letter-spacing: .01em;
+  text-shadow: 0 2px 18px rgba(0,0,0,.86);
+}
+
+.v72-card[href^="/characters/"]:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.09) brightness(.98);
+}
