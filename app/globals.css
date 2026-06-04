@@ -3889,3 +3889,97 @@ body {
     display: none;
   }
 }
+/* v80.4 — 4K Home Quality Upgrade
+   Uses the approved option 2 layout with a sharper 4K WebP asset.
+   Paste at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+.v804-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v804-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+}
+
+.v804-stage picture {
+  display: block;
+  width: 100%;
+}
+
+.v804-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+/* Invisible clickable areas over the approved design */
+.v804-hotspot {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v804-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Coordinates match the approved visual composition */
+.v804-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v804-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v804-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v804-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v804-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v804-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v804-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v804-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v804-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v804-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v804-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+@media (min-width: 1800px) {
+  .v804-stage {
+    max-width: 3840px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v804-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v804-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v804-hotspot {
+    display: none;
+  }
+}
