@@ -3983,3 +3983,393 @@ body {
     display: none;
   }
 }
+/* v80.5 — Approved category chips overlay
+   Adds the selected option 2 premium category strip to the homepage.
+   Paste at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+.v805-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  overflow-x: clip;
+}
+
+.v805-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+}
+
+.v805-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Covers the old embedded chips on the approved home visual */
+.v805-chip-mask {
+  position: absolute;
+  left: 4.2%;
+  top: 34.4%;
+  width: 91.8%;
+  height: 10.8%;
+  z-index: 4;
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(2,2,1,.96), rgba(2,2,1,.62), rgba(2,2,1,.95)),
+    radial-gradient(circle at center, rgba(190,145,73,.10), transparent 70%);
+  box-shadow: 0 0 38px 24px rgba(2,2,1,.72);
+  pointer-events: none;
+}
+
+.v805-chip-strip {
+  position: absolute;
+  left: 3.2%;
+  top: 29.6%;
+  width: 93.6%;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: contrast(1.04) saturate(.98);
+}
+
+.v805-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v805-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Nav / page hotspots */
+.v805-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v805-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v805-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v805-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v805-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v805-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v805-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v805-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v805-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v805-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v805-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+/* Category chip hotspots over the new approved strip */
+.v805-hotspot-characters { left: 7.4%; top: 36.2%; width: 10.5%; height: 5.3%; }
+.v805-hotspot-realms { left: 18.5%; top: 36.2%; width: 10.2%; height: 5.3%; }
+.v805-hotspot-artifacts { left: 29.6%; top: 36.2%; width: 12.2%; height: 5.3%; }
+.v805-hotspot-chronicles { left: 43.1%; top: 36.2%; width: 11.5%; height: 5.3%; }
+.v805-hotspot-maps { left: 55.5%; top: 36.2%; width: 9.9%; height: 5.3%; }
+.v805-hotspot-ages { left: 66.0%; top: 36.2%; width: 9.0%; height: 5.3%; }
+.v805-hotspot-catalog { left: 77.0%; top: 35.8%; width: 15.5%; height: 6.1%; }
+
+@media (max-width: 760px) {
+  .v805-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v805-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v805-chip-mask,
+  .v805-chip-strip,
+  .v805-hotspot {
+    display: none;
+  }
+}
+/* v80.5 — Approved category chips overlay
+   Adds the selected option 2 premium category strip to the homepage.
+   Paste at the VERY END of app/globals.css. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+.v805-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  overflow-x: clip;
+}
+
+.v805-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+}
+
+.v805-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Covers the old embedded chips on the approved home visual */
+.v805-chip-mask {
+  position: absolute;
+  left: 4.2%;
+  top: 34.4%;
+  width: 91.8%;
+  height: 10.8%;
+  z-index: 4;
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(2,2,1,.96), rgba(2,2,1,.62), rgba(2,2,1,.95)),
+    radial-gradient(circle at center, rgba(190,145,73,.10), transparent 70%);
+  box-shadow: 0 0 38px 24px rgba(2,2,1,.72);
+  pointer-events: none;
+}
+
+.v805-chip-strip {
+  position: absolute;
+  left: 3.2%;
+  top: 29.6%;
+  width: 93.6%;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: contrast(1.04) saturate(.98);
+}
+
+.v805-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v805-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Nav / page hotspots */
+.v805-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v805-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v805-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v805-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v805-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v805-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v805-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v805-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v805-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v805-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v805-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+/* Category chip hotspots over the new approved strip */
+.v805-hotspot-characters { left: 7.4%; top: 36.2%; width: 10.5%; height: 5.3%; }
+.v805-hotspot-realms { left: 18.5%; top: 36.2%; width: 10.2%; height: 5.3%; }
+.v805-hotspot-artifacts { left: 29.6%; top: 36.2%; width: 12.2%; height: 5.3%; }
+.v805-hotspot-chronicles { left: 43.1%; top: 36.2%; width: 11.5%; height: 5.3%; }
+.v805-hotspot-maps { left: 55.5%; top: 36.2%; width: 9.9%; height: 5.3%; }
+.v805-hotspot-ages { left: 66.0%; top: 36.2%; width: 9.0%; height: 5.3%; }
+.v805-hotspot-catalog { left: 77.0%; top: 35.8%; width: 15.5%; height: 6.1%; }
+
+@media (max-width: 760px) {
+  .v805-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v805-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v805-chip-mask,
+  .v805-chip-strip,
+  .v805-hotspot {
+    display: none;
+  }
+}
+
+/* v80.5.2 — Make category chips much smaller
+   Paste at the VERY END of app/globals.css.
+   This strongly reduces the v80.5 category strip so it stops dominating the hero. */
+
+.v805-chip-mask {
+  left: 8.4% !important;
+  top: 36.65% !important;
+  width: 83.2% !important;
+  height: 4.05% !important;
+  border-radius: 10px !important;
+  opacity: 0.72 !important;
+  background:
+    linear-gradient(90deg, rgba(2,2,1,.72), rgba(2,2,1,.30), rgba(2,2,1,.72)) !important;
+  box-shadow: 0 0 16px 10px rgba(2,2,1,.42) !important;
+}
+
+.v805-chip-strip {
+  left: 13.8% !important;
+  top: 35.95% !important;
+  width: 72.4% !important;
+  max-height: 4.95% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: contrast(1.01) saturate(.94) brightness(.90) !important;
+  opacity: 0.94 !important;
+}
+
+/* Smaller click zones matching reduced strip */
+.v805-hotspot-characters { left: 15.6% !important; top: 36.95% !important; width: 8.0% !important; height: 2.65% !important; }
+.v805-hotspot-realms { left: 25.1% !important; top: 36.95% !important; width: 7.5% !important; height: 2.65% !important; }
+.v805-hotspot-artifacts { left: 34.1% !important; top: 36.95% !important; width: 9.1% !important; height: 2.65% !important; }
+.v805-hotspot-chronicles { left: 44.9% !important; top: 36.95% !important; width: 8.8% !important; height: 2.65% !important; }
+.v805-hotspot-maps { left: 55.2% !important; top: 36.95% !important; width: 7.2% !important; height: 2.65% !important; }
+.v805-hotspot-ages { left: 63.9% !important; top: 36.95% !important; width: 6.4% !important; height: 2.65% !important; }
+.v805-hotspot-catalog { left: 72.1% !important; top: 36.78% !important; width: 11.5% !important; height: 3.0% !important; }
+
+/* Keep the visual hierarchy: hero title and featured realm should breathe */
+.v805-reference {
+  display: block !important;
+}
+
+/* Hide the oversized overlay entirely on smaller screens */
+@media (max-width: 1280px) {
+  .v805-chip-strip,
+  .v805-chip-mask {
+    display: none !important;
+  }
+}
+/* v80.5.3 — Remove bad chips overlay and restore clean approved 4K home
+   Paste at the VERY END of app/globals.css. */
+
+/* Kill the failed v80.5 overlay completely */
+.v805-chip-mask,
+.v805-chip-strip {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: #020201 !important;
+}
+
+.v8053-home {
+  width: 100%;
+  min-height: 100vh;
+  background: #020201;
+  color: #efe6d0;
+  overflow-x: clip;
+}
+
+.v8053-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  background: #020201;
+  isolation: isolate;
+}
+
+.v8053-stage picture {
+  display: block;
+  width: 100%;
+}
+
+.v8053-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+.v8053-hotspot {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  border-radius: 999px;
+  outline: none;
+}
+
+.v8053-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
+  background: rgba(231, 196, 112, 0.08);
+}
+
+/* Coordinates for the clean approved homepage */
+.v8053-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
+.v8053-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
+.v8053-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
+.v8053-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
+.v8053-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
+.v8053-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
+.v8053-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
+.v8053-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+
+.v8053-hotspot-gondor { left: 6.8%; top: 45.7%; width: 87.1%; height: 20.4%; border-radius: 20px; }
+.v8053-hotspot-aragorn { left: 4.7%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v8053-hotspot-ring { left: 22.6%; top: 67.9%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+
+@media (min-width: 1800px) {
+  .v8053-stage {
+    max-width: 3840px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v8053-stage {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .v8053-reference {
+    width: 180vw;
+    max-width: none;
+    transform: translateX(-18vw);
+    transform-origin: top center;
+  }
+
+  .v8053-hotspot {
+    display: none;
+  }
+}
