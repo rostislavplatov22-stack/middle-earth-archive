@@ -28,7 +28,7 @@ export default function V90RealSauronLayout() {
 
       <section className="v90-visual">
         <img
-          src="/v90/sauron-correct-visual.webp"
+          src="/v100/sauron-catalog-card.webp"
           alt="Саурон в чёрной броне на фоне башни и Ока"
           width="688"
           height="915"

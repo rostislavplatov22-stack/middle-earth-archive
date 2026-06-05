@@ -7,10 +7,10 @@ export default function V94SauronReadablePage() {
     <main className="v94-sauron-page" aria-label="Sauron readable premium 4K dossier page">
       <div className="v94-sauron-stage">
         <picture>
-          <source media="(max-width: 760px)" srcSet="/v94/sauron-variant-3-readable-2k.webp" />
-          <source type="image/webp" srcSet="/v94/sauron-variant-3-readable-4k.webp" />
+          <source media="(max-width: 760px)" srcSet="/v100/sauron-catalog-card.webp" />
+          <source type="image/webp" srcSet="/v100/sauron-catalog-card.webp" />
           <img
-            src="/v94/sauron-variant-3-readable-4k.jpg"
+            src="/v100/sauron-catalog-card.webp"
             alt="Саурон — премиальное 4K досье персонажа с улучшенной читаемостью"
             width="3840"
             height="2161"

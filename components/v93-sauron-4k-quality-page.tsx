@@ -7,10 +7,10 @@ export default function V93Sauron4KQualityPage() {
     <main className="v93-sauron-page" aria-label="Sauron premium 4K dossier page">
       <div className="v93-sauron-stage">
         <picture>
-          <source media="(max-width: 760px)" srcSet="/v93/sauron-variant-3-2k.webp" />
-          <source type="image/webp" srcSet="/v93/sauron-variant-3-4k.webp" />
+          <source media="(max-width: 760px)" srcSet="/v100/sauron-catalog-card.webp" />
+          <source type="image/webp" srcSet="/v100/sauron-catalog-card.webp" />
           <img
-            src="/v93/sauron-variant-3-4k.jpg"
+            src="/v100/sauron-catalog-card.webp"
             alt="Саурон — премиальное 4K досье персонажа"
             width="3840"
             height="2160"

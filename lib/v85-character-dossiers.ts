@@ -189,7 +189,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Lord of Mordor",
     summary: "A will of domination bound to craft, fear, and the pursuit of absolute control.",
     rarity: "Shadow",
-    image: "/v78-2/characters/sauron.webp",
+    image: "/v100/sauron-catalog-card.webp",
     accent: "shadow",
     sections: [
       {

@@ -7,7 +7,7 @@ export default function V92SauronVariant3Approved() {
     <main className="v92-sauron-page" aria-label="Sauron selected premium dossier variant 3">
       <div className="v92-sauron-stage">
         <img
-          src="/v92/sauron-variant-3-approved.webp"
+          src="/v100/sauron-catalog-card.webp"
           alt="Саурон — премиальное досье персонажа, выбранный вариант 3"
           width="1672"
           height="941"

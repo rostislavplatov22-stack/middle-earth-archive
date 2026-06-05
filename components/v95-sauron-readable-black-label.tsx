@@ -27,9 +27,9 @@ export default function V95SauronReadableBlackLabel() {
 
       <section className="v95-visual">
         <picture>
-          <source type="image/webp" srcSet="/v95/sauron-left-visual.webp" />
+          <source type="image/webp" srcSet="/v100/sauron-catalog-card.webp" />
           <img
-            src="/v95/sauron-left-visual.jpg"
+            src="/v100/sauron-catalog-card.webp"
             alt="Саурон в чёрной броне на фоне башни и Ока"
             width="1800"
             height="2394"

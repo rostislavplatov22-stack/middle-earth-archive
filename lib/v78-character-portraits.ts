@@ -24,7 +24,7 @@ export const v78CharacterPortraits = {
   "haldir": "/v78/characters/haldir.webp",
   "glorfindel": "/v78/characters/glorfindel.webp",
   "cirdan": "/v78/characters/cirdan.webp",
-  "sauron": "/v78-2/characters/sauron.webp",
+  "sauron": "/v100/sauron-catalog-card.webp",
   "witch-king-of-angmar": "/v78/characters/witch-king-of-angmar.webp",
   "nazgul": "/v78/characters/nazgul.webp",
   "smeagol-gollum": "/v78/characters/smeagol-gollum.webp",
