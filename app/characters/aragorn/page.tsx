@@ -1,11 +1,10 @@
-import V108AragornKingElessarPage from "@/components/v108-aragorn-king-elessar-page";
+import V111Aragorn8K from "@/components/v111-aragorn-8k";
 
 export const metadata = {
-  title: "Арагорн — King of Men Edition",
-  description:
-    "Премиальное досье Арагорна в стиле King of Men Edition.",
+  title: "Арагорн — King of Men Edition 8K",
+  description: "Премиальное 8K досье Арагорна.",
 };
 
 export default function AragornPage() {
-  return <V108AragornKingElessarPage />;
+  return <V111Aragorn8K />;
 }

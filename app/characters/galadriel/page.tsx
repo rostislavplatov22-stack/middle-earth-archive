@@ -1,11 +1,10 @@
-import V107GaladrielFullElvenRoyalPage from "@/components/v107-galadriel-full-elven-royal-page";
+import V111Galadriel8K from "@/components/v111-galadriel-8k";
 
 export const metadata = {
-  title: "Галадриэль — Elven Royal Label Dossier",
-  description:
-    "Премиальное светлое досье Галадриэль в стиле Elven Royal Label.",
+  title: "Галадриэль — Elven Royal Label Dossier 8K",
+  description: "Премиальное 8K досье Галадриэль.",
 };
 
 export default function GaladrielPage() {
-  return <V107GaladrielFullElvenRoyalPage />;
+  return <V111Galadriel8K />;
 }

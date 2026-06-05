@@ -1,5 +1,10 @@
-import { V72Catalog } from "../../components/v72-catalog";
+import V111Catalog8K from "@/components/v111-catalog-8k";
+
+export const metadata = {
+  title: "Каталог персонажей — Premium Dossiers 8K",
+  description: "Премиальный 8K каталог персонажей Средиземья.",
+};
 
 export default function CatalogPage() {
-  return <V72Catalog />;
+  return <V111Catalog8K />;
 }

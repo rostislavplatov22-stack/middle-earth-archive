@@ -1,11 +1,10 @@
-import V105GandalfLightPremiumPage from "@/components/v105-gandalf-light-premium-page";
+import V111Gandalf8K from "@/components/v111-gandalf-8k";
 
 export const metadata = {
-  title: "Гэндальф — Celestial Label Dossier",
-  description:
-    "Финальное светлое премиальное досье Гэндальфа в стиле Celestial Label.",
+  title: "Гэндальф — Celestial Label Dossier 8K",
+  description: "Премиальное 8K досье Гэндальфа.",
 };
 
 export default function GandalfPage() {
-  return <V105GandalfLightPremiumPage />;
+  return <V111Gandalf8K />;
 }
