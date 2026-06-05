@@ -1,11 +1,11 @@
-import V99ExactUploadedSauronVariant from "@/components/v99-exact-uploaded-sauron-variant";
+import V101SauronFinalPage from "@/components/v101-sauron-final-page";
 
 export const metadata = {
   title: "Саурон — Black Label Dossier",
   description:
-    "Финальное премиальное досье Саурона, точный выбранный вариант без изменений.",
+    "Финальное премиальное досье Саурона и утверждённый визуальный вариант.",
 };
 
 export default function SauronPage() {
-  return <V99ExactUploadedSauronVariant />;
+  return <V101SauronFinalPage />;
 }
