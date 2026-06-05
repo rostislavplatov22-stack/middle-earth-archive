@@ -125,7 +125,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Bearer of the One Ring",
     summary: "A quiet figure whose endurance altered the fate of the age.",
     rarity: "Legendary",
-    image: "/v78-2/characters/frodo-baggins.webp",
+    image: "/v113/frodo-catalog-card.webp",
     accent: "gold",
     sections: [
       {
@@ -253,7 +253,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Archer",
     summary: "A swift-eyed prince whose grace and precision carried the memory of the Elves into war.",
     rarity: "Legendary",
-    image: "/v78-2/characters/legolas.webp",
+    image: "/v113/legolas-catalog-card.webp",
     accent: "gold",
     sections: [
       {

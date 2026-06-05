@@ -6,7 +6,7 @@ const CORE_INDEX = [
   { title: "Gondor", type: "realm", slug: "gondor", href: "/realms/gondor", excerpt: "The Realm of Men and the last great bulwark against Mordor.", image: "/v72/assets/realm-gondor.webp" },
   { title: "Lórien", type: "location", slug: "lorien", href: "/locations/lorien", excerpt: "The Golden Wood, preserved under the grace of Galadriel.", image: "/v72/assets/realm-lorien.webp" },
   { title: "The One Ring", type: "artifact", slug: "the-one-ring", href: "/artifacts/the-one-ring", excerpt: "The Ring of Power forged by Sauron to dominate the others.", image: "/v72/assets/artifact-ring.webp" },
-  { title: "Phial of Galadriel", type: "artifact", slug: "phial-of-galadriel", href: "/artifacts/phial-of-galadriel", excerpt: "A vessel of star-light given to Frodo in Lórien.", image: "/v72/assets/artifact-phial.webp" },
+  { title: "Phial of Galadriel", type: "artifact", slug: "phial-of-galadriel", href: "/artifacts/phial-of-galadriel", excerpt: "A vessel of star-light given to Frodo in Lórien.", image: "/v113/frodo-catalog-card.webp" },
   { title: "Third Age", type: "age", slug: "third-age", href: "/ages/third-age", excerpt: "The age of the War of the Ring and the fading of the Elves.", image: "/v72/assets/age-third.webp" },
 ];
 
