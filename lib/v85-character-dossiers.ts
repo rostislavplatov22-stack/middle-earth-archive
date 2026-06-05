@@ -29,7 +29,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Wizard",
     summary: "A keeper of hidden fire and one of the central guides of the Free Peoples.",
     rarity: "Mythic",
-    image: "/v78-2/characters/gandalf.webp",
+    image: "/v102/gandalf-catalog-card.webp",
     accent: "gold",
     sections: [
       {

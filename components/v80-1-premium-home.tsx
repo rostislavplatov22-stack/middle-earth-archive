@@ -19,7 +19,7 @@ const FEATURED = [
     subtitle: "Istar, Keeper of Wisdom",
     body: "A wanderer and wise guide, allied to the Free Peoples in an age of trial.",
     href: "/characters/gandalf",
-    image: "/v72/assets/char-gandalf.webp",
+    image: "/v102/gandalf-catalog-card.webp",
     cta: "View Profile",
   },
   {

@@ -1,5 +1,5 @@
 export const v78CharacterPortraits = {
-  "gandalf": "/v78-2/characters/gandalf.webp",
+  "gandalf": "/v102/gandalf-catalog-card.webp",
   "frodo-baggins": "/v78-2/characters/frodo-baggins.webp",
   "aragorn": "/v78-2/characters/aragorn.webp",
   "galadriel": "/v78-2/characters/galadriel.webp",
@@ -73,5 +73,5 @@ export type V78CharacterPortraitSlug = keyof typeof v78CharacterPortraits;
 export type V78PortraitVariant = "catalog" | "detail" | "search";
 
 export function getV78CharacterPortrait(slug: string, _variant: V78PortraitVariant = "catalog") {
-  return v78CharacterPortraits[slug as V78CharacterPortraitSlug] ?? "/v78/characters/gandalf.webp";
+  return v78CharacterPortraits[slug as V78CharacterPortraitSlug] ?? "/v102/gandalf-catalog-card.webp";
 }
