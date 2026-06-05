@@ -15,7 +15,7 @@ const cards = [
     title: "Aragorn",
     subtitle: "Heir of Isildur, King in Exile",
     href: "/characters/aragorn",
-    image: "/v70/assets/detail-aragorn-portrait.webp",
+    image: "/v108/aragorn-catalog-card.webp",
     cta: "View profile",
   },
   {

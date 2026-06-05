@@ -48,7 +48,7 @@ const LOWER = [
     title: "Aragorn",
     subtitle: "Heir of Isildur",
     href: "/characters/aragorn",
-    image: "/v72/assets/char-aragorn.webp",
+    image: "/v108/aragorn-catalog-card.webp",
   },
   {
     eyebrow: "Map",

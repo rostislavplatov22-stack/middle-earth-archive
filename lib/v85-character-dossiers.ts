@@ -61,7 +61,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Ranger / King",
     summary: "A hidden king shaped by exile, restraint, and the burden of ancient lineage.",
     rarity: "Legendary",
-    image: "/v78-2/characters/aragorn.webp",
+    image: "/v108/aragorn-catalog-card.webp",
     accent: "gold",
     sections: [
       {
