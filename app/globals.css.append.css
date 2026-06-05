@@ -1,6 +1,6 @@
 
-/* v83.2 — Remove cheap Eye animation, keep premium static integrated visual.
-   Paste this at the VERY END of app/globals.css. */
+/* v92 — Add selected Sauron variant 3 to site
+   Paste at the VERY END of app/globals.css. */
 
 html,
 body {
@@ -9,60 +9,14 @@ body {
   background: #020201 !important;
 }
 
-/* Disable every previous eye/fire animation and overlay */
-.v81-eye-layer,
-.v81-sauron-eye-orbit,
-.v81-sauron-eye-aura,
-.v81-sauron-eye-core,
-.v81-sauron-eye-particles,
-.v81-sauron-eye-iris,
-.v81-sauron-eye-pupil,
-.v81-sauron-eye-flare,
-.v831-eye-motion,
-.v831-eye-motion span,
-.v831-eye-halo,
-.v831-eye-aperture,
-.v831-eye-heat,
-.v805-chip-mask,
-.v805-chip-strip {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  animation: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.v804-stage::before,
-.v804-stage::after,
-.v804-stage picture::after,
-.v83-stage::before,
-.v83-stage::after,
-.v83-stage picture::after,
-.v831-stage::before,
-.v831-stage::after,
-.v831-stage picture::after {
-  content: none !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  animation: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.v832-home {
+.v92-sauron-page {
   width: 100%;
   min-height: 100vh;
   background: #020201;
-  color: #efe6d0;
   overflow-x: clip;
 }
 
-.v832-stage {
+.v92-sauron-stage {
   position: relative;
   width: 100%;
   max-width: 100vw;
@@ -72,7 +26,7 @@ body {
   overflow: hidden;
 }
 
-.v832-reference {
+.v92-sauron-reference {
   display: block;
   width: 100%;
   height: auto;
@@ -82,8 +36,8 @@ body {
   image-rendering: auto;
 }
 
-/* Keep only very refined interaction on invisible links */
-.v832-hotspot {
+/* Invisible clickable zones over selected variant 3 */
+.v92-hotspot {
   position: absolute;
   z-index: 8;
   display: block;
@@ -91,45 +45,69 @@ body {
   outline: none;
 }
 
-.v832-hotspot:focus-visible {
+.v92-hotspot:focus-visible {
   box-shadow: 0 0 0 2px rgba(231, 196, 112, 0.9), 0 0 32px rgba(231, 196, 112, 0.35);
   background: rgba(231, 196, 112, 0.08);
 }
 
-/* Coordinates */
-.v832-hotspot-catalog { left: 27.5%; top: 2.2%; width: 7.4%; height: 5.2%; }
-.v832-hotspot-characters { left: 34.8%; top: 2.2%; width: 7.9%; height: 5.2%; }
-.v832-hotspot-realms { left: 42.7%; top: 2.2%; width: 6.6%; height: 5.2%; }
-.v832-hotspot-artifacts { left: 49.2%; top: 2.2%; width: 7.3%; height: 5.2%; }
-.v832-hotspot-chronicles { left: 56.6%; top: 2.2%; width: 8.5%; height: 5.2%; }
-.v832-hotspot-maps { left: 65.3%; top: 2.2%; width: 5.1%; height: 5.2%; }
-.v832-hotspot-ages { left: 70.8%; top: 2.2%; width: 4.8%; height: 5.2%; }
-.v832-hotspot-palantir { left: 80.5%; top: 1.4%; width: 13.3%; height: 5.8%; }
+@media (hover: hover) {
+  .v92-hotspot:hover {
+    background: rgba(214, 177, 95, 0.035);
+    box-shadow:
+      0 0 0 1px rgba(214, 177, 95, 0.16) inset,
+      0 0 20px rgba(214, 177, 95, 0.10);
+  }
+}
 
-.v832-hotspot-gondor { left: 4.8%; top: 47.2%; width: 90.2%; height: 20.4%; border-radius: 20px; }
-.v832-hotspot-aragorn { left: 4.7%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
-.v832-hotspot-ring { left: 22.6%; top: 68.4%; width: 17.0%; height: 20.0%; border-radius: 16px; }
+.v92-home {
+  left: 0.8%;
+  top: 0.8%;
+  width: 16.4%;
+  height: 6.4%;
+}
+
+.v92-characters {
+  left: 35.5%;
+  top: 1.0%;
+  width: 9.0%;
+  height: 6.0%;
+}
+
+.v92-palantir {
+  left: 86.3%;
+  top: 1.0%;
+  width: 10.4%;
+  height: 6.2%;
+}
+
+.v92-back {
+  left: 1.3%;
+  bottom: 5.0%;
+  width: 8.6%;
+  height: 8.8%;
+  border-radius: 18px;
+}
 
 @media (min-width: 1800px) {
-  .v832-stage {
+  .v92-sauron-stage {
     max-width: 3840px;
   }
 }
 
 @media (max-width: 760px) {
-  .v832-stage {
+  .v92-sauron-stage {
     width: 100vw;
     overflow-x: hidden;
   }
 
-  .v832-reference {
-    width: 180vw;
+  .v92-sauron-reference {
+    width: 210vw;
     max-width: none;
-    transform: translateX(-18vw);
+    transform: translateX(-44vw);
     transform-origin: top center;
   }
 
-  .v832-hotspot {
+  .v92-hotspot {
     display: none;
   }
 }

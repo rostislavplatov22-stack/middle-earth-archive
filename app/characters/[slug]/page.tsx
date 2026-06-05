@@ -1,13 +1,38 @@
 import { notFound } from "next/navigation";
-import { V70DetailPage } from "@/components/v70-detail-page";
-import { v70Records } from "@/lib/v70-detail-data";
-import { getV77CharacterDetailRecord } from "@/lib/v77-character-data";
+import V85CharacterDossierPage from "@/components/v85-character-dossier-page";
+import { getAllV85CharacterSlugs, getV85CharacterDossier } from "@/lib/v85-character-dossiers";
 
-type PageProps = { params: Promise<{ slug: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-export default async function Page({ params }: PageProps) {
+export async function generateStaticParams() {
+  return getAllV85CharacterSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const record = v70Records.find((item) => item.slug === slug && item.kind === "character") ?? getV77CharacterDetailRecord(slug);
-  if (!record) notFound();
-  return <V70DetailPage record={record} />;
+  const entry = getV85CharacterDossier(slug);
+
+  if (!entry) {
+    return {
+      title: "Character Dossier",
+    };
+  }
+
+  return {
+    title: `${entry.name} — Character Dossier`,
+    description: entry.summary,
+  };
+}
+
+export default async function CharacterPage({ params }: PageProps) {
+  const { slug } = await params;
+  const entry = getV85CharacterDossier(slug);
+
+  if (!entry) {
+    notFound();
+  }
+
+  return <V85CharacterDossierPage slug={slug} />;
 }
