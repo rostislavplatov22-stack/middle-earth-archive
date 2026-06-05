@@ -93,7 +93,7 @@ export const v85CharacterDossiers: V85CharacterDossier[] = [
     role: "Ring-bearer",
     summary: "One of the greatest of the Eldar remaining in Middle-earth, guardian of memory and light.",
     rarity: "Mythic",
-    image: "/v78-2/characters/galadriel.webp",
+    image: "/v107/galadriel-catalog-card.webp",
     accent: "silver",
     sections: [
       {

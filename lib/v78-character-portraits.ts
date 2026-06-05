@@ -2,7 +2,7 @@ export const v78CharacterPortraits = {
   "gandalf": "/v102/gandalf-catalog-card.webp",
   "frodo-baggins": "/v78-2/characters/frodo-baggins.webp",
   "aragorn": "/v78-2/characters/aragorn.webp",
-  "galadriel": "/v78-2/characters/galadriel.webp",
+  "galadriel": "/v107/galadriel-catalog-card.webp",
   "samwise-gamgee": "/v78-2/characters/samwise-gamgee.webp",
   "bilbo-baggins": "/v78/characters/bilbo-baggins.webp",
   "merry-brandybuck": "/v78/characters/merry-brandybuck.webp",
