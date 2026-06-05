@@ -1,10 +1,10 @@
-import V111Catalog8K from "@/components/v111-catalog-8k";
+import V112CatalogResponsive from "@/components/v112-catalog-responsive";
 
 export const metadata = {
-  title: "Каталог персонажей — Premium Dossiers 8K",
-  description: "Премиальный 8K каталог персонажей Средиземья.",
+  title: "Каталог персонажей — Premium Dossiers Responsive",
+  description: "Премиальный каталог персонажей с 8K desktop и лёгкой мобильной версией.",
 };
 
 export default function CatalogPage() {
-  return <V111Catalog8K />;
+  return <V112CatalogResponsive />;
 }

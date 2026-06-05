@@ -1,10 +1,10 @@
-import V111Sauron8K from "@/components/v111-sauron-8k";
+import V112SauronResponsive from "@/components/v112-sauron-responsive";
 
 export const metadata = {
-  title: "Саурон — Black Label Dossier 8K",
-  description: "Премиальное 8K досье Саурона.",
+  title: "Саурон — Black Label Dossier Responsive",
+  description: "Премиальное досье Саурона с 8K desktop и лёгкой мобильной версией.",
 };
 
 export default function SauronPage() {
-  return <V111Sauron8K />;
+  return <V112SauronResponsive />;
 }
