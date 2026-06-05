@@ -1,11 +1,11 @@
-import V92SauronVariant3Approved from "@/components/v92-sauron-variant-3-approved";
+import V99ExactUploadedSauronVariant from "@/components/v99-exact-uploaded-sauron-variant";
 
 export const metadata = {
   title: "Саурон — Black Label Dossier",
   description:
-    "Финальное премиальное досье Саурона, выбранный вариант 3.",
+    "Финальное премиальное досье Саурона, точный выбранный вариант без изменений.",
 };
 
 export default function SauronPage() {
-  return <V92SauronVariant3Approved />;
+  return <V99ExactUploadedSauronVariant />;
 }

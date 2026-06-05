@@ -6,46 +6,27 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://palantir-archive.ne
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Middle-earth Archive — Premium Lore Interface",
-    template: "%s | Middle-earth Archive",
+    default: "Архив Средиземья — Премиум коллекция знаний",
+    template: "%s | Архив Средиземья",
   },
   description:
-    "A premium fantasy archive for exploring characters, realms, artifacts, maps, ages, and chronicles of Middle-earth.",
-  applicationName: "Middle-earth Archive",
-  keywords: [
-    "Middle-earth Archive",
-    "fantasy archive",
-    "lore catalog",
-    "characters",
-    "realms",
-    "artifacts",
-    "Palantir search",
-  ],
-  authors: [{ name: "Middle-earth Archive" }],
-  creator: "Middle-earth Archive",
-  publisher: "Middle-earth Archive",
+    "Премиальный fantasy-архив персонажей, миров, артефактов, карт, эпох и хроник Средиземья.",
+  applicationName: "Архив Средиземья",
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "Middle-earth Archive",
-    title: "Middle-earth Archive — Premium Lore Interface",
+    siteName: "Архив Средиземья",
+    title: "Архив Средиземья — Премиум коллекция знаний",
     description:
-      "Explore a premium dark-fantasy archive of characters, realms, artifacts, maps, ages, and chronicles.",
+      "Кинематографичный премиальный архив персонажей, миров, артефактов, карт, эпох и хроник.",
     images: [
       {
         url: "/og-middle-earth-archive.jpg",
         width: 1200,
         height: 630,
-        alt: "Middle-earth Archive premium interface",
+        alt: "Архив Средиземья",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Middle-earth Archive — Premium Lore Interface",
-    description:
-      "A cinematic premium archive for exploring characters, realms, artifacts, maps, ages, and chronicles.",
-    images: ["/og-middle-earth-archive.jpg"],
   },
   robots: {
     index: true,
@@ -69,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="ru" translate="no" className="h-full antialiased">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
