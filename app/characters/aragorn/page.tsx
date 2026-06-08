@@ -1,11 +1,11 @@
-import V112AragornResponsive from "@/components/v112-aragorn-responsive";
+import V121AragornDesktopPolish from "@/components/v121-aragorn-desktop-polish";
 
 export const metadata = {
-  title: "Арагорн — King of Men Edition Responsive",
+  title: "Арагорн — King of Men Edition",
   description:
-    "Премиальное досье Арагорна с 8K desktop и лёгкой мобильной версией.",
+    "Премиальное досье Арагорна с усиленной royal desktop-атмосферой Gondor.",
 };
 
 export default function AragornPage() {
-  return <V112AragornResponsive />;
+  return <V121AragornDesktopPolish />;
 }
