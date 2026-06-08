@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import PremiumPageShell from "./ui/PremiumPageShell";
 import V116PremiumCatalogWithAllLinks from "./v116-premium-catalog-with-all-links";
 
 const characters = [
@@ -57,11 +58,10 @@ const characters = [
 export default function V120ResponsiveCatalog() {
   return (
     <>
-     <div className="v120-desktop-catalog v121-catalog-shell">
-  <div className="v121-catalog-atmosphere" aria-hidden="true" />
-  <div className="v121-catalog-frame">
+  <div className="v120-desktop-catalog">
+  <PremiumPageShell variant="obsidian" className="v121-catalog-page">
     <V116PremiumCatalogWithAllLinks />
-  </div>
+  </PremiumPageShell>
 </div>
 
       <main className="v120-mobile-catalog">
