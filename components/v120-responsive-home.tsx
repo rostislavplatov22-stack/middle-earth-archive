@@ -33,9 +33,12 @@ const archiveItems = [
 export default function V120ResponsiveHome() {
   return (
     <>
-      <div className="v120-desktop-home">
-        <V832PremiumStaticHome />
-      </div>
+      <div className="v121-desktop-home-shell">
+  <div className="v121-desktop-atmosphere" aria-hidden="true" />
+  <div className="v121-desktop-home-frame">
+    <V832PremiumStaticHome />
+  </div>
+</div>
 
       <main className="v120-mobile-home">
         <section className="v120-home-hero">
@@ -108,7 +111,65 @@ export default function V120ResponsiveHome() {
         .v120-mobile-home {
           display: none;
         }
+.v121-desktop-home-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200, 164, 93, 0.12), transparent 34%),
+    radial-gradient(circle at 82% 28%, rgba(177, 74, 38, 0.12), transparent 34%),
+    linear-gradient(180deg, #030302 0%, #080705 52%, #020202 100%);
+}
 
+.v121-desktop-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(239, 229, 208, 0.08), transparent 18%),
+    radial-gradient(circle at 86% 16%, rgba(177, 74, 38, 0.12), transparent 20%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 34%, rgba(0, 0, 0, 0.56));
+  opacity: 0.85;
+}
+
+.v121-desktop-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px);
+  background-size: 46px 46px;
+  opacity: 0.08;
+  transform: rotate(-8deg);
+}
+
+.v121-desktop-home-frame {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  animation: v121DesktopReveal 1.1s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes v121DesktopReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v121-desktop-home-frame {
+    animation: none !important;
+  }
+}
         @media (max-width: 760px) {
           html,
           body {
