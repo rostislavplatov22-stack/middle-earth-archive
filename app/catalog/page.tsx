@@ -1,11 +1,11 @@
-import V116PremiumCatalogWithAllLinks from "@/components/v116-premium-catalog-with-all-links";
+import V120ResponsiveCatalog from "@/components/v120-responsive-catalog";
 
 export const metadata = {
   title: "Каталог персонажей — Premium Dossiers",
   description:
-    "Премиальный каталог персонажей Средиземья с корректными ссылками на Фродо и Леголаса.",
+    "Премиальный каталог персонажей Средиземья с мобильной responsive-версией.",
 };
 
 export default function CatalogPage() {
-  return <V116PremiumCatalogWithAllLinks />;
+  return <V120ResponsiveCatalog />;
 }

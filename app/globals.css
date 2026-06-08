@@ -6812,3 +6812,32 @@ body {
     text-align: center;
   }
 }
+/* Mobile premium fix for static catalog */
+@media (max-width: 760px) {
+  .v116-catalog-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100svh !important;
+    overflow-x: hidden !important;
+    background: #030302 !important;
+  }
+
+  .v116-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: #030302 !important;
+  }
+
+  .v116-reference {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  .v116-hotspot {
+    display: none !important;
+  }
+}
