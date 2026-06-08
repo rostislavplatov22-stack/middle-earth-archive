@@ -6921,3 +6921,143 @@ body {
     letter-spacing: 0.015em !important;
   }
 }
+/* =========================================================
+   V122 GLOBAL PREMIUM FOUNDATION
+   Middle-earth Archive — luxury base system
+   ========================================================= */
+
+:root {
+  --mea-obsidian: #030302;
+  --mea-black: #050505;
+  --mea-charcoal: #0b0907;
+  --mea-gold: #c8a45d;
+  --mea-gold-soft: rgba(200, 164, 93, 0.28);
+  --mea-parchment: #efe5d0;
+  --mea-muted: rgba(239, 229, 208, 0.68);
+  --mea-line: rgba(200, 164, 93, 0.18);
+  --mea-ember: #b14a26;
+  --mea-forest: #132017;
+  --mea-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--mea-obsidian);
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(200, 164, 93, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--mea-black) 0%, var(--mea-obsidian) 100%);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(200, 164, 93, 0.34);
+  color: #fff8e8;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img {
+  image-rendering: auto;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 1px solid rgba(200, 164, 93, 0.72);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(200, 164, 93, 0.11);
+}
+
+button,
+a {
+  transition:
+    opacity 0.35s var(--mea-ease),
+    filter 0.35s var(--mea-ease),
+    transform 0.35s var(--mea-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  button:hover {
+    filter: brightness(1.04);
+  }
+}
+
+/* Premium scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200, 164, 93, 0.42) rgba(255, 255, 255, 0.04);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(3, 3, 2, 0.92);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(200, 164, 93, 0.74), rgba(200, 164, 93, 0.28));
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(180deg, rgba(239, 229, 208, 0.82), rgba(200, 164, 93, 0.42));
+}
+
+/* Global cinematic page reveal */
+main {
+  isolation: isolate;
+}
+
+/* Protect premium layouts from accidental horizontal overflow */
+#__next,
+main,
+section {
+  max-width: 100%;
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
