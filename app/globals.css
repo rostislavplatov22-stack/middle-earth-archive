@@ -6841,3 +6841,47 @@ body {
     display: none !important;
   }
 }
+/* Mobile home premium typography polish */
+@media (max-width: 760px) {
+  .v120-mobile-home {
+    padding: 24px 16px 64px !important;
+  }
+
+  .v120-home-hero {
+    min-height: 560px !important;
+    padding: 34px 0 32px !important;
+  }
+
+  .v120-home-hero h1 {
+    max-width: 330px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(31px, 10vw, 42px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: 0.025em !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;
+  }
+
+  .v120-home-copy {
+    max-width: 31ch !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .v120-palantir-copy h2,
+  .v120-section-head h2,
+  .v120-featured-realm h2 {
+    font-size: 30px !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .v120-home-hero h1 {
+    max-width: 310px !important;
+    font-size: 30px !important;
+    line-height: 1.06 !important;
+    letter-spacing: 0.015em !important;
+  }
+}

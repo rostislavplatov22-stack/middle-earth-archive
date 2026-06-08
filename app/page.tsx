@@ -1,5 +1,5 @@
-import V832PremiumStaticHome from "@/components/v83-2-premium-static-home";
+import V120ResponsiveHome from "@/components/v120-responsive-home";
 
 export default function Home() {
-  return <V832PremiumStaticHome />;
+  return <V120ResponsiveHome />;
 }
