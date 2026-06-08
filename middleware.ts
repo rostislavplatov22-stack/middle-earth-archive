@@ -1,7 +1,25 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+const isDev = process.env.NODE_ENV === "development";
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  "connect-src 'self' https: ws: wss:",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const SECURITY_HEADERS: Record<string, string> = {
-  "Content-Security-Policy": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: blob: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests",
+  "Content-Security-Policy": contentSecurityPolicy,
   "X-Frame-Options": "DENY",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
