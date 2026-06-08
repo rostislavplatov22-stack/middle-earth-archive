@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import PremiumPageShell from "./ui/PremiumPageShell";
 import V832PremiumStaticHome from "./v83-2-premium-static-home";
 
 const archiveItems = [
@@ -33,12 +34,12 @@ const archiveItems = [
 export default function V120ResponsiveHome() {
   return (
     <>
-      <div className="v121-desktop-home-shell">
-  <div className="v121-desktop-atmosphere" aria-hidden="true" />
-  <div className="v121-desktop-home-frame">
+      <div className="v120-desktop-home">
+  <PremiumPageShell variant="obsidian" className="v121-home-page">
     <V832PremiumStaticHome />
-  </div>
+  </PremiumPageShell>
 </div>
+
 
       <main className="v120-mobile-home">
         <section className="v120-home-hero">
