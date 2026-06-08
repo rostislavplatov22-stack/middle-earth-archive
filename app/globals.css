@@ -6885,3 +6885,39 @@ body {
     letter-spacing: 0.015em !important;
   }
 }
+/* Mobile Gandalf dossier typography polish */
+@media (max-width: 760px) {
+  .v120-gandalf-hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 10.5vw, 42px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: 0.025em !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;
+  }
+
+  .v120-gandalf-hero {
+    min-height: 500px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .v120-subtitle {
+    max-width: 27ch !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .v120-quote-card p {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .v120-gandalf-hero h1 {
+    font-size: 33px !important;
+    letter-spacing: 0.015em !important;
+  }
+}

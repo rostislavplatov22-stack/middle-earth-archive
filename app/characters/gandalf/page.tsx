@@ -1,11 +1,11 @@
-import V112GandalfResponsive from "@/components/v112-gandalf-responsive";
+import V120ResponsiveGandalf from "@/components/v120-responsive-gandalf";
 
 export const metadata = {
   title: "Гэндальф — Celestial Label Dossier Responsive",
   description:
-    "Премиальное досье Гэндальфа с 8K desktop и лёгкой мобильной версией.",
+    "Премиальное досье Гэндальфа с desktop-версией и отдельной мобильной страницей.",
 };
 
 export default function GandalfPage() {
-  return <V112GandalfResponsive />;
+  return <V120ResponsiveGandalf />;
 }
