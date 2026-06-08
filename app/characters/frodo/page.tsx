@@ -1,11 +1,11 @@
-import V115FrodoResponsive8K from "@/components/v115-frodo-responsive-8k";
+import V120ResponsiveFrodo from "@/components/v120-responsive-frodo";
 
 export const metadata = {
-  title: "Фродо Бэггинс — Ring Bearer Dossier 8K",
+  title: "Фродо Бэггинс — Ring Bearer Dossier Responsive",
   description:
-    "Премиальное 8K досье Фродо Бэггинса с лёгкой мобильной версией.",
+    "Премиальное досье Фродо Бэггинса с desktop-версией и отдельной мобильной страницей.",
 };
 
 export default function FrodoPage() {
-  return <V115FrodoResponsive8K />;
+  return <V120ResponsiveFrodo />;
 }
