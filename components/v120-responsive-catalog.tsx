@@ -57,9 +57,12 @@ const characters = [
 export default function V120ResponsiveCatalog() {
   return (
     <>
-      <div className="v120-desktop-catalog">
-        <V116PremiumCatalogWithAllLinks />
-      </div>
+     <div className="v120-desktop-catalog v121-catalog-shell">
+  <div className="v121-catalog-atmosphere" aria-hidden="true" />
+  <div className="v121-catalog-frame">
+    <V116PremiumCatalogWithAllLinks />
+  </div>
+</div>
 
       <main className="v120-mobile-catalog">
         <section className="v120-mobile-hero">
@@ -109,7 +112,96 @@ export default function V120ResponsiveCatalog() {
       </main>
 
       <style jsx global>{`
-        .v120-mobile-catalog {
+    .v121-catalog-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200, 164, 93, 0.1), transparent 34%),
+    radial-gradient(circle at 18% 28%, rgba(21, 37, 27, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 22%, rgba(177, 74, 38, 0.12), transparent 30%),
+    linear-gradient(180deg, #030302 0%, #070604 52%, #020202 100%);
+}
+
+.v121-catalog-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 36%, rgba(0, 0, 0, 0.62)),
+    radial-gradient(circle at 50% 8%, rgba(239, 229, 208, 0.07), transparent 22%);
+  opacity: 0.9;
+}
+
+.v121-catalog-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.07;
+  transform: rotate(-7deg);
+}
+
+.v121-catalog-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 36%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+}
+
+.v121-catalog-frame {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  animation: v121CatalogReveal 1s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.v121-catalog-frame .v116-stage {
+  filter: saturate(1.04) contrast(1.035);
+}
+
+.v121-catalog-frame .v116-hotspot {
+  border-radius: 22px;
+  transition:
+    background 0.55s cubic-bezier(.16, 1, .3, 1),
+    box-shadow 0.55s cubic-bezier(.16, 1, .3, 1),
+    transform 0.55s cubic-bezier(.16, 1, .3, 1);
+}
+
+.v121-catalog-frame .v116-hotspot:hover {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(200, 164, 93, 0.16), transparent 58%),
+    rgba(200, 164, 93, 0.025);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 164, 93, 0.18),
+    0 0 46px rgba(200, 164, 93, 0.12);
+  transform: translateY(-1px);
+}
+
+@keyframes v121CatalogReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.988);
+    filter: blur(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v121-catalog-frame {
+    animation: none !important;
+  }
+}    
+.v120-mobile-catalog {
           display: none;
         }
 
